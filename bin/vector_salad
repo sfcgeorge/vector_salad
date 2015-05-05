@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'ostruct'
+
+class OptparseVectorSalad
+  #
+  # Return a structure describing the options.
+  #
+  def self.parse(args)
+    # The options specified on the command line will be collected in *options*.
+    # We set default values here.
+    options = OpenStruct.new
+    options.file = nil
+    options.magic = true
+    options.verbose = false
+    options.width = nil
+    options.height = nil
+
+    opt_parser = OptionParser.new do |opts|
+      opts.banner = "Usage: vrs [options]"
+
+      opts.separator ""
+      opts.separator "Specific options:"
+
+      opts.on("--magic",
+              "Automatically include VectorSalad and formatter in your canvas.") do |lib|
+        options.magic = true
+      end
+
+      opts.on("--crop CROP",
+              "Set width and height manually, format WIDTHxHEIGHT, e.g: 400x600.") do |crop|
+        options.width, options.height = crop.split('x').map(&:to_i)
+      end
+
+      # Mandatory argument.
+      opts.on("-f", "--file FILE",
+              "Run VectorSalad on the FILE") do |file|
+        options.file = file
+      end
+
+      # Boolean switch.
+      opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+        options.verbose = v
+      end
+
+      opts.separator ""
+      opts.separator "Common options:"
+
+      # No argument, shows at tail.  This will print an options summary.
+      # Try it and see!
+      opts.on_tail("-h", "--help", "Show this message") do
+        puts opts
+        exit
+      end
+
+      # Another typical switch to print the version.
+      opts.on_tail("--version", "Show version") do
+        puts VectorSalad::VERSION
+        exit
+      end
+    end
+
+    opt_parser.parse!(args)
+    options
+  end
+end
+
+options = OptparseVectorSalad.parse(ARGV)
+
+require 'vector_salad/export_with_magic'
+puts VectorSalad::ExportWithMagic.new(options).export

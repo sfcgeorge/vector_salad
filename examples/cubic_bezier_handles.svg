@@ -1,0 +1,14 @@
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="400"
+     height="300">
+
+<rect x="0" y="0" width="400" height="300" fill="none"/>
+<path d="M 20 280 C 150 100, 350 50, 380 280" fill="red" stroke="black" stroke-width="4"/>
+<path d="M 20 280 L 150 100" stroke="blue" stroke-width="2"/>
+<circle cx="150" cy="100" r="4" fill="blue"/>
+<path d="M 380 280 L 350 50" stroke="blue" stroke-width="2"/>
+<circle cx="350" cy="50" r="4" fill="blue"/>
+<circle cx="20" cy="280" r="4" fill="green"/>
+<circle cx="380" cy="280" r="4" fill="green"/>
+</svg>

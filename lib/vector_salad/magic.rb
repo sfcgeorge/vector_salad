@@ -1,0 +1,17 @@
+require 'vector_salad/canvas'
+require 'vector_salad/dsl'
+Dir.glob(File.expand_path('../standard_shapes/*.rb', __FILE__)).each do |file|
+  require file
+end
+
+module VectorSalad
+  module Magic
+    def canvas
+      @vs_canvas ||= VectorSalad::Canvas.new
+    end
+  end
+end
+
+extend VectorSalad::DSL
+extend VectorSalad::Magic
+include VectorSalad::StandardShapes
