@@ -44,16 +44,17 @@ Now you'll need a design document to compile and render. Here's a very simple ex
 
 ```ruby
 rect(390, 200, fill: "beige") # background
+
 (1..5).each do |n| # repeat 5 times
   # make a star from the union of two triangles 
   union(fill: "gold", stroke_width: 3, stroke: "black") do
     triangle(25)
-    triangle(25).flip(:x)
+    triangle(25).flip_x
   end.move(n * 65, 100) # move stars at intervals horizontally 
 end
 ```
 
-Save this document as gold_stars.rb, then it can be converted to SVG with the following command:
+Save this document as `gold_stars.rb`, then it can be converted to SVG with the following command:
 
 ```
 vector_salad -f path/to/gold_stars.rb
