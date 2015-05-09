@@ -83,7 +83,7 @@ Further information on the usage of these command line tools can be found by run
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/vector_salad/fork )
+1. Fork it ( https://github.com/sfcgeorge/vector_salad/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
