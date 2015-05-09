@@ -1,6 +1,8 @@
 # VectorSalad
 
-TODO: Write a gem description
+![Space---created with VectorSalad](examples/space.png)
+
+Create art and practical design with descriptive Ruby code!
 
 ## Installation
 
