@@ -1,6 +1,6 @@
-require 'vector_salad/standard_shapes/path'
-require 'vector_salad/standard_shapes/n'
-require 'vector_salad/mixins/at'
+require "vector_salad/standard_shapes/path"
+require "vector_salad/standard_shapes/n"
+require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
@@ -12,21 +12,20 @@ module VectorSalad
       #
       # Examples:
       #   new(100).detail 'Square sides 100x100 at 0,0.'
-      #   new(100, at: [50,50])
-      Contract Pos, { at: Coords } => Square
-      def initialize(size, at: [0,0], **options)
+      Contract Pos, {} => Square
+      def initialize(size, **options)
         @size = size
         @options = options
-        @at = at
+        @x, @y = 0, 0
         self
       end
 
       def to_path
         Path.new(
-          N.n(@at[0], @at[1]),
-          N.n(@at[0], @at[1]+@size),
-          N.n(@at[0]+@size, @at[1]+@size),
-          N.n(@at[0]+@size, @at[1]),
+          N.n(@x, @y),
+          N.n(@x, @y + @size),
+          N.n(@x + @size, @y + @size),
+          N.n(@x + @size, @y),
           **@options
         )
       end

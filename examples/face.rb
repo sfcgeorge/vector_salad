@@ -1,4 +1,4 @@
-oval 80, 100, at:[200, 200], fill: "pink"
-oval 8, 6, at:[170, 200], fill: "darkgreen"
-oval 8, 5, at:[230, 200], fill: "brown"
-oval 70, 40, at:[200, 140], fill: "fuchsia"
+oval(80, 100, fill: "pink")[200, 200]
+oval(8, 6, fill: "darkgreen")[170, 200]
+oval(8, 5, fill: "brown")[230, 200]
+oval(70, 40, fill: "fuchsia")[200, 140]

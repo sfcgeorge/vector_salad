@@ -12,10 +12,10 @@ path(
 )
 
 path(n1, N.n(*h1.at), closed: false, stroke: :blue, stroke_width: 2)
-circle(4, at: h1.at, fill: :blue)
+circle(4, fill: :blue)[*h1.at]
 
 path(n2, N.n(*h2.at), closed: false, stroke: :blue, stroke_width: 2)
-circle(4, at: h2.at, fill: :blue)
+circle(4, fill: :blue)[*h2.at]
 
-circle(4, at: n1.at, fill: :green)
-circle(4, at: n2.at, fill: :green)
+circle(4, fill: :green)[*n1.at]
+circle(4, fill: :green)[*n2.at]

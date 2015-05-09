@@ -1,4 +1,4 @@
-QUALITY = 8 # 8
+QUALITY = 1 # 8
 WIDTH = 1000
 HEIGHT = (WIDTH / 16.0 * 9.0).round
 GOLDEN = 1.618
@@ -22,7 +22,7 @@ def star(r, at:, shift: 30, bias: 2)
   bias.times { blues + [blue] }
   fill_a = ([red] + blues).sample
   fill = "rgb(#{fill_a.join(',')})"
-  circle(r, at: at, fill: fill)
+  circle(r, fill: fill)[*at]
 end
 
 def background(n:, star:)

@@ -1,4 +1,4 @@
-require 'vector_salad/standard_shapes/transform'
+require "vector_salad/standard_shapes/transform"
 
 module VectorSalad
   module StandardShapes

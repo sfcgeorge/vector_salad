@@ -1,4 +1,4 @@
-require 'vector_salad/mixins/at'
+require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
@@ -100,19 +100,6 @@ module VectorSalad
       Contract Coord, Coord => N
       def self.l(x, y)
         new(x, y, :left)
-      end
-
-      # Get the x,y coordinates of the node.
-      Contract None => Coords
-      def at
-        [@x, @y]
-      end
-
-      # Change the x,y coordinates of the node.
-      Contract Coords => N
-      def at=(xy)
-        @x, @y = xy
-        self
       end
 
       private

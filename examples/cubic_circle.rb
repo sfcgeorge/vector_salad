@@ -1,12 +1,10 @@
 square(240, fill: :none)
 
-cubic = Circle.new(
-  100,
-  at: [120, 120],
+cubic = Circle.new(100,
   fill: :red,
   stroke: :black,
   stroke_width: 4
-)
+)[120, 120]
 canvas << cubic
 
 handle = []
@@ -24,5 +22,5 @@ end
 
 nodes.each do |node|
   color = node.type == :node ? :green : :blue
-  circle(4, at: node.at, fill: color)
+  circle(4, fill: color)[*node.at]
 end

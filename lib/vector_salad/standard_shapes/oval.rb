@@ -1,6 +1,6 @@
-require 'vector_salad/standard_shapes/path'
-require 'vector_salad/standard_shapes/n'
-require 'vector_salad/mixins/at'
+require "vector_salad/standard_shapes/path"
+require "vector_salad/standard_shapes/n"
+require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
@@ -12,12 +12,11 @@ module VectorSalad
       #
       # Examples:
       #   new(100, 200)
-      #   new(100, 200, at: [50,50])
-      Contract Pos, Pos, { at: Maybe[Coords] } => Oval
-      def initialize(width, height, at: [0,0], **options)
+      Contract Pos, Pos, {} => Oval
+      def initialize(width, height, **options)
         @options = options
         @width, @height = width, height
-        @at = at
+        @x, @y = 0, 0
         self
       end
 
@@ -31,19 +30,19 @@ module VectorSalad
         dw = c * @width
         dh = c * @height
         Path.new(
-          N.n(@at[0]+@width, @at[1]),
-          N.c(@at[0]+@width, @at[1]+dh),
-          N.c(@at[0]+dw, @at[1]+@height),
-          N.n(@at[0], @at[1]+@height),
-          N.c(@at[0]-dw, @at[1]+@height),
-          N.c(@at[0]-@width, @at[1]+dh),
-          N.n(@at[0]-@width, @at[1]),
-          N.c(@at[0]-@width, @at[1]-dh),
-          N.c(@at[0]-dw, @at[1]-@height),
-          N.n(@at[0], @at[1]-@height),
-          N.c(@at[0]+dw, @at[1]-@height),
-          N.c(@at[0]+@width, @at[1]-dh),
-          N.n(@at[0]+@width, @at[1]),
+          N.n(@x + @width, @y),
+          N.c(@x + @width, @y + dh),
+          N.c(@x + dw, @y + @height),
+          N.n(@x, @y + @height),
+          N.c(@x - dw, @y + @height),
+          N.c(@x - @width, @y + dh),
+          N.n(@x - @width, @y),
+          N.c(@x - @width, @y - dh),
+          N.c(@x - dw, @y - @height),
+          N.n(@x, @y - @height),
+          N.c(@x + dw, @y - @height),
+          N.c(@x + @width, @y - dh),
+          N.n(@x + @width, @y),
           @options
         )
       end

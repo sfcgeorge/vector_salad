@@ -1,6 +1,6 @@
-require 'vector_salad/standard_shapes/path'
-require 'vector_salad/standard_shapes/n'
-require 'vector_salad/mixins/at'
+require "vector_salad/standard_shapes/path"
+require "vector_salad/standard_shapes/n"
+require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
@@ -12,12 +12,11 @@ module VectorSalad
       #
       # Examples do
       #   new(100)
-      #   new(100, at: [50,50])
-      Contract Pos, { at: Maybe[Coords] } => Circle
-      def initialize(radius, at: [0,0], **options)
+      Contract Pos, {} => Circle
+      def initialize(radius, **options)
         @options = options
         @radius = radius
-        @at = at
+        @x, @y = 0, 0
         self
       end
 
@@ -30,19 +29,19 @@ module VectorSalad
         c = 0.551915024494
         d = c * @radius
         Path.new(
-          N.n(@at[0] + @radius, @at[1]),
-          N.c(@at[0] + @radius, @at[1] + d),
-          N.c(@at[0] + d, @at[1] + @radius),
-          N.n(@at[0], @at[1] + @radius),
-          N.c(@at[0] - d, @at[1] + @radius),
-          N.c(@at[0] - @radius, @at[1] + d),
-          N.n(@at[0] - @radius, @at[1]),
-          N.c(@at[0] - @radius, @at[1] - d),
-          N.c(@at[0] - d, @at[1] - @radius),
-          N.n(@at[0], @at[1] - @radius),
-          N.c(@at[0] + d, @at[1] - @radius),
-          N.c(@at[0] + @radius, @at[1] - d),
-          N.n(@at[0] + @radius, @at[1]),
+          N.n(@x + @radius, @y),
+          N.c(@x + @radius, @y + d),
+          N.c(@x + d, @y + @radius),
+          N.n(@x, @y + @radius),
+          N.c(@x - d, @y + @radius),
+          N.c(@x - @radius, @y + d),
+          N.n(@x - @radius, @y),
+          N.c(@x - @radius, @y - d),
+          N.c(@x - d, @y - @radius),
+          N.n(@x, @y - @radius),
+          N.c(@x + d, @y - @radius),
+          N.c(@x + @radius, @y - d),
+          N.n(@x + @radius, @y),
           **@options
         )
       end
@@ -54,8 +53,8 @@ module VectorSalad
         arc = (2.0 * Math::PI) / fn
         fn.times do |t|
           a = arc * t
-          x = @radius * Math.cos(a) + @at[0]
-          y = @radius * Math.sin(a) + @at[1]
+          x = @radius * Math.cos(a) + @x
+          y = @radius * Math.sin(a) + @y
           nodes << N.n(x, y)
         end
         Path.new(*nodes, **@options)

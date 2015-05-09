@@ -14,7 +14,7 @@ union do
       union do
         (n_teeth = 4).times do |t|
           a = 180.0 / n_teeth * t
-          rect(~2, ~16, at: [~-1, ~-8]).rotate(a)
+          rect(~2, ~16)[~-1, ~-8].rotate(a)
         end
       end
 
@@ -27,6 +27,6 @@ union do
 end.move(~8, ~8)
 
 (1..15).each do |i| # 16px grid
-  path([~i, 0], [~i, ~16], stroke: 'orange', opacity: 0.6)
-  path([0, ~i], [~16, ~i], stroke: 'orange', opacity: 0.6)
+  path([~i, 0], [~i, ~16], stroke: "orange", opacity: 0.6)
+  path([0, ~i], [~16, ~i], stroke: "orange", opacity: 0.6)
 end if GRID

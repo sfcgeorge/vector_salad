@@ -31,7 +31,7 @@ def fox(size, at:, **options)
   # tail tip
   intersection(**contrast) do
     canvas << tail.shape
-    circle(w.round, at: tip_n.move(x, y).at)
+    circle(w.round)[*tip_n.move(x, y).at]
   end
 
   # body
@@ -53,7 +53,7 @@ def fox(size, at:, **options)
   # feet
   intersection(**contrast) do
     canvas << body.shape
-    square(h, at: [x - w, y + size - size / 3])
+    square(h)[x - w, y + size - size / 3]
   end
 
   # head
@@ -75,25 +75,25 @@ def fox(size, at:, **options)
     **options
   ).move(x, y + w / 2)
   # ears
-  ear = difference(**contrast, stroke: 'none') do
+  ear = difference(**contrast, stroke: "none") do
     difference do
       canvas << head.shape.clone
-      circle((w * 1.08).round, at: [x, y + w / 2])
+      circle(w * 1.08)[x, y + w / 2]
     end.scale(0.6).move(0.32 * x, 0.22 * y)
-    square(size, at: [x - w / 6, y - w])
+    square(size)[x - w / 6, y - w]
   end
   ear2 = ear.shape.to_path.paths.first.flip_y.move(x * 2, 0)
-  ear2.options = { fill: 'white' }
+  ear2.options = { fill: "white" }
   canvas << ear2
   # nose
   intersection do
     canvas << head.shape.clone
-    circle((w / 9).round, at: [x, y + w / 2])
+    circle(w / 9)[x, y + w / 2]
   end
 
   # eyes
-  circle((w / 18).round, at: [x - w / 7, y - w / 6])
-  circle((w / 18).round, at: [x + w / 7, y - w / 6])
+  circle(w / 18)[x - w / 7, y - w / 6]
+  circle(w / 18)[x + w / 7, y - w / 6]
 end
 
 fox(HEIGHT / 2, at: [WIDTH / 2, HEIGHT / 4],

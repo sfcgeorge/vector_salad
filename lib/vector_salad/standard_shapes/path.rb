@@ -44,7 +44,7 @@ module VectorSalad
 
               dx = pivot.x - source.x
               dy = pivot.y - source.y
-              node.at = [pivot.x + dx, pivot.y + dy]
+              node[pivot.x + dx, pivot.y + dy]
 
               node.type = source.type
             else

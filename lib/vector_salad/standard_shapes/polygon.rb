@@ -1,6 +1,6 @@
-require 'contracts_contracts'
-require 'vector_salad/standard_shapes/path'
-require 'vector_salad/mixins/at'
+require "contracts_contracts"
+require "vector_salad/standard_shapes/path"
+require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
@@ -12,12 +12,11 @@ module VectorSalad
       #
       # Examples:
       #   new(6, 100)
-      #   new(5, 100, at: [50,50])
-      Contract PolySides, Pos, { at: Coords } => Polygon
-      def initialize(sides, radius, at: [0,0], **options)
+      Contract PolySides, Pos, {} => Polygon
+      def initialize(sides, radius, **options)
         @sides, @radius = sides, radius
         @options = options
-        @at = at
+        @x, @y = 0, 0
         self
       end
 
@@ -27,8 +26,8 @@ module VectorSalad
         theta = angle / 2 + Math::PI / 2
         @sides.times do |n|
           nodes[n] = []
-          nodes[n][0] = @radius * Math.cos(angle * n + theta) + @at[0]
-          nodes[n][1] = @radius * Math.sin(angle * n + theta) + @at[1]
+          nodes[n][0] = @radius * Math.cos(angle * n + theta) + @x
+          nodes[n][1] = @radius * Math.sin(angle * n + theta) + @y
         end
 
         Path.new(*nodes, **@options)

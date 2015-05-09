@@ -1,4 +1,4 @@
-require 'vector_salad/standard_shapes/polygon'
+require "vector_salad/standard_shapes/polygon"
 
 module VectorSalad
   module StandardShapes
@@ -7,9 +7,8 @@ module VectorSalad
       #
       # Examples:
       #   new(100)
-      #   new(100, at: [50,50])
-      def initialize(radius, at: [0,0], **options)
-        super(5, radius, at: at, **options)
+      def initialize(radius, **options)
+        super(5, radius, **options)
       end
     end
   end

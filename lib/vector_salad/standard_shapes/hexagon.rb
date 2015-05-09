@@ -7,9 +7,8 @@ module VectorSalad
       #
       # Examples:
       #   new(100)
-      #   new(100, at: [50,50])
-      def initialize(radius, at: [0,0], **options)
-        super(6, radius, at: at, **options)
+      def initialize(radius, **options)
+        super(6, radius, **options)
       end
     end
   end
