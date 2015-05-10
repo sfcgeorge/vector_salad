@@ -1,5 +1,4 @@
 --plugin contracts
---readme README.md
 --title 'VectorSalad Documentation'
 --charset utf-8
 --markup markdown
