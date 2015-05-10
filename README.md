@@ -80,6 +80,8 @@ If you leave `fresh_vector_salad` running, try changing the design file, e.g. ma
 
 Further information on the usage of these command line tools can be found by running them with the `--help` flag. Further examples can be found in the examples folder.
 
+See the full [Documentation](http://www.rubydoc.info/github/sfcgeorge/vector_salad) for more usage info.
+
 
 ## Contributing
 
