@@ -16,7 +16,6 @@ module VectorSalad
       # @param max The maximum offset
       # @param min The minimum offset (default 0)
       # @param fn The quantization number of sides
-      Contract Num, { min: Maybe[Num], fn: Maybe[Fixnum] } => Path
       Contract Num, { min: Maybe[Num],
                       fn: Maybe[Fixnum],
                       canvas: VectorSalad::Canvas
