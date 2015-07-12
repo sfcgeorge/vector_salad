@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
-require 'optparse'
-require 'ostruct'
+require "optparse"
+require "ostruct"
+require_relative "../lib/vector_salad/version"
 
 class OptparseVectorSalad
   #
@@ -23,13 +24,8 @@ class OptparseVectorSalad
       opts.separator ""
       opts.separator "Specific options:"
 
-      opts.on("--magic",
-              "Automatically include VectorSalad and formatter in your canvas.") do |lib|
-        options.magic = true
-      end
-
       opts.on("--crop CROP",
-              "Set width and height manually, format WIDTHxHEIGHT, e.g: 400x600.") do |crop|
+              "Set manual crop, WIDTHxHEIGHT, e.g: 400x600") do |crop|
         options.width, options.height = crop.split('x').map(&:to_i)
       end
 
@@ -39,10 +35,15 @@ class OptparseVectorSalad
         options.file = file
       end
 
-      # Boolean switch.
-      opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
-        options.verbose = v
+      opts.on("--[no-]magic",
+              "Add some helpful magic to your design") do |m|
+        options.magic = m
       end
+
+      # Boolean switch.
+      # opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+        # options.verbose = v
+      # end
 
       opts.separator ""
       opts.separator "Common options:"
@@ -66,7 +67,8 @@ class OptparseVectorSalad
   end
 end
 
+ARGV << "-h" if ARGV.empty?
 options = OptparseVectorSalad.parse(ARGV)
 
-require 'vector_salad/export_with_magic'
+require_relative "../lib/vector_salad/export_with_magic"
 puts VectorSalad::ExportWithMagic.new(options).export
