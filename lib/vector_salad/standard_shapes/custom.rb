@@ -7,7 +7,6 @@ module VectorSalad
   module StandardShapes
     class Custom < BasicShape
       def initialize(name, **options, &block)
-        #instance_eval(&block)
         ::VectorSalad::StandardShapes.const_set(name.to_s.capitalize.to_sym, Class.new(BasicShape) do
           include VectorSalad::DSL
           include VectorSalad::StandardShapes

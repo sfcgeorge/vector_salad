@@ -76,6 +76,12 @@ module VectorSalad
       end
     end
 
+    class BasicShape
+      def to_svg
+        to_path.to_svg
+      end
+    end
+
     class MultiPath
       def to_svg
         svg = '<path d="'
@@ -124,51 +130,3 @@ module VectorSalad
     end
   end
 end
-
-#include VectorSalad::StandardShapes
-#p = Path.new([0,0], [50,0], [50,50])
-#puts p.to_svg
-
-#p1 = Path.new(
-  #N.n(0,100),
-  #N.q(100,0),
-  #N.n(200,100),
-  #N.q(300,200),
-  #N.n(400,100),
-  #N.n(400,200),
-  #N.n(0,200)
-#)
-#puts p1.to_svg
-
-#p2 = Path.new(
-  #N.n(0,100),
-  #N.c(50,150),
-  #N.c(250,150),
-  #N.n(300,100),
-  #N.n(300,50),
-  #N.c(300,0),
-  #N.c(200,50),
-  #N.n(100,50),
-  #N.c(50,0),
-  #N.c(0,0),
-  #N.n(0,50)
-#)
-#puts p2.to_svg
-
-#p3 = Path.new(
-  #N.n(0,200),
-  #N.c(50,000),
-  #N.c(300,100),
-  #N.n(400,150),
-  #N.q(200,500),
-  #N.n(50,300)
-#)
-#puts p3.to_svg
-
-#puts p4.to_svg
-
-#sq = Square.new(100, at: [50,50])
-#puts sq.to_path.to_svg
-
-#ci = Circle.new(100, at: [200,200])
-#puts ci.to_path.to_svg

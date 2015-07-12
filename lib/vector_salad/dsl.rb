@@ -33,7 +33,7 @@ module VectorSalad
 
         canvas << shape_proxy
         shape_proxy
-      rescue LoadError # no shape available
+      rescue NameError # no shape available
         super
       end
     end
