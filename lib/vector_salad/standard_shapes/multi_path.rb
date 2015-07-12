@@ -32,7 +32,13 @@ module VectorSalad
         self
       end
 
-      # Move the shape relatively.
+      # Move the MultiPath absolutely.
+      Contract Num, Num => MultiPath
+      def [](x, y)
+        each_send(:[], x, y)
+      end
+
+      # Move the MultiPath relatively.
       Contract Num, Num => MultiPath
       def move(x, y)
         each_send(:move, x, y)

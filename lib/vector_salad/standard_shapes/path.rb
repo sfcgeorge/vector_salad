@@ -61,7 +61,16 @@ module VectorSalad
         self
       end
 
-      # Move the shape relatively.
+      # Move the path absolutely.
+      Contract Num, Num => Path
+      def [](x, y)
+        @nodes.map do |node|
+          node[x, y]
+        end
+        self
+      end
+
+      # Move the path relatively.
       Contract Num, Num => Path
       def move(x, y)
         Path.new(
