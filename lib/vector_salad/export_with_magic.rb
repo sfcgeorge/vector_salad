@@ -1,7 +1,8 @@
-require 'vector_salad/exporters/svg_exporter'
-require 'vector_salad/canvas'
-require 'vector_salad/dsl'
-Dir.glob(File.expand_path('../standard_shapes/*.rb', __FILE__)).each do |file|
+require "vector_salad/monkeypatches"
+require "vector_salad/exporters/svg_exporter"
+require "vector_salad/canvas"
+require "vector_salad/dsl"
+Dir.glob(File.expand_path("../standard_shapes/*.rb", __FILE__)).each do |file|
   require file
 end
 

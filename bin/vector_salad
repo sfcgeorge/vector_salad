@@ -37,6 +37,7 @@ class OptparseVectorSalad
 
       opts.on("--[no-]magic",
               "Add some helpful magic to your design") do |m|
+        puts "So this happened: #{m}"
         options.magic = m
       end
 
