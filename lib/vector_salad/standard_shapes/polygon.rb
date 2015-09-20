@@ -4,13 +4,14 @@ require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
+    # Regular polygon shape.
     class Polygon < BasicShape
       include VectorSalad::Mixins::At
       attr_reader :sides
 
       # Create a regular polygon with a specified number of sides.
       #
-      # Examples:
+      # @example
       #   new(6, 100)
       Contract PolySides, Pos, {} => Polygon
       def initialize(sides, radius, **options)
@@ -20,6 +21,7 @@ module VectorSalad
         self
       end
 
+      # Convert the shape to a path
       def to_path
         nodes = []
         angle = 2 * Math::PI / @sides

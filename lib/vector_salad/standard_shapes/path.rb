@@ -1,19 +1,19 @@
-require 'spiro'
+require "spiro"
 
-require 'vector_salad/standard_shapes/basic_shape'
-require 'vector_salad/standard_shapes/n'
-require 'vector_salad/interpolate'
+require "vector_salad/standard_shapes/basic_shape"
+require "vector_salad/standard_shapes/n"
+require "vector_salad/interpolate"
 
 module VectorSalad
   module StandardShapes
+    # The simplest shape primitive, all shapes can be represented as a Path.
     class Path < BasicShape
       attr_reader :nodes, :closed
 
-      # The simplest shape primitive, all shapes can be represented as a Path.
       # A path is made up of N nodes and these nodes can have different types
       # (see N).
       #
-      # Examples:
+      # @example
       #   new([0,0], [0,1], [1,1])
       #
       # @param nodes x,y coordinate arrays or N node instances
@@ -24,17 +24,17 @@ module VectorSalad
         nodes.each_index do |i|
           node = nodes[i].class == Array ? N.new(*nodes[i]) : nodes[i]
           if i == 0 && ![:node, :g2, :g4, :left, :right].include?(node.type)
-            fail 'First node in a path must be :node or :spiro type.'
+            fail "First node in a path must be :node or :spiro type."
           end
           case node.type
           when :cubic
             unless nodes[i - 1].type == :node ||
                   (nodes[i - 2].type == :node && nodes[i - 1].type == :cubic)
-              fail ':cubic nodes must follow a :node and at most 1 other :cubic.'
+              fail ":cubic node must follow a :node and at most 1 other :cubic."
             end
           when :quadratic
             unless nodes[i - 1].type == :node
-              fail ':quadratic nodes must follow a :node.'
+              fail ":quadratic nodes must follow a :node."
             end
           when :mirror
             if nodes[i - 1].type == :node &&
@@ -48,8 +48,8 @@ module VectorSalad
 
               node.type = source.type
             else
-              fail ':reflect nodes must be preceeded by a :node with a
-                :quadratic or :cubic before that.'
+              fail ":reflect nodes must be preceeded by a :node with a
+                :quadratic or :cubic before that."
             end
           when :node
           end
@@ -96,8 +96,9 @@ module VectorSalad
 
       # Flips the path on the specified axis.
       #
-      # Examples:
+      # @example
       #   flip(:x)
+      # @example
       #   flip(:y)
       Contract Or[:x, :y] => Path
       def flip(axis)
@@ -111,8 +112,10 @@ module VectorSalad
       end
 
       # Rotates the Path by the specified angle about the origin.
-      # Examples:
+      #
+      # @example
       #   rotate(90)
+      # @example
       #   rotate(-45)
       Contract Num => Path
       def rotate(angle)
@@ -135,6 +138,7 @@ module VectorSalad
       # Scale a Path by multiplier about the origin.
       # Supply just 1 multiplier to scale evenly, or x and y multipliers
       # to stretch or squash the axies.
+      #
       # @param x_multiplier 1 is no change, 2 is double size, 0.5 is half, etc.
       Contract Num, Maybe[Num] => Path
       def scale(x_multiplier, y_multiplier = x_multiplier)
@@ -150,6 +154,7 @@ module VectorSalad
       end
 
       # Jitter the position of nodes in a Path randomly.
+      #
       # @param max The maximum offset
       # @param min The minimum offset (default 0)
       # @param fn The quantization number of sides
@@ -166,10 +171,13 @@ module VectorSalad
         )
       end
 
+      # Convert the path to a path (it returns self)
       def to_path
         self
       end
 
+      # Convert the complex path to a bezier path.
+      # This will convert any Spiro curve nodes into beziers.
       def to_bezier_path
         path = to_path
         spiro = false
@@ -180,7 +188,7 @@ module VectorSalad
         if spiro
           flat_spline_path = Spiro.spiros_to_splines(flat_path, @closed)
           if flat_spline_path.nil?
-            fail 'Spiro failed, try different coordinates or using G2 nodes.'
+            fail "Spiro failed, try different coordinates or using G2 nodes."
           else
             path = Path.new(*flat_spline_path.map do |n|
               N.new(n[0], n[1], n[2])
@@ -190,6 +198,9 @@ module VectorSalad
         path
       end
 
+      # Convert the path into a cubic bezier path (no quadratics).
+      # This will convert any Spiro curve nodes into beziers and
+      # any quadratic beziers into cubics.
       def to_cubic_path
         path = to_bezier_path.nodes
         cubic_path = []
@@ -223,6 +234,7 @@ module VectorSalad
         Path.new(*cubic_path, closed: @closed, **@options)
       end
 
+      # Flatten any curves in the path into many small straight line segments.
       def to_simple_path(*_)
         # convert bezier curves and spiro splines
         path = to_cubic_path.nodes
@@ -246,10 +258,12 @@ module VectorSalad
         Path.new(*nodes, closed: @closed, **@options)
       end
 
+      # Wrap the path in a multi_path.
       def to_multi_path
         MultiPath.new(self)
       end
 
+      # Return the nodes as an array of coordinates.
       def to_a
         nodes.map(&:at)
       end

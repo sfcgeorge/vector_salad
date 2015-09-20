@@ -2,6 +2,9 @@ require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
+    # N node. A node is the simplest primitive but useless on its own.
+    # Use nodes to build up a path (see Path).
+    # A node is a point in space with x and y coordinates.
     class N
       include VectorSalad::Mixins::At
       include Contracts
@@ -14,9 +17,9 @@ module VectorSalad
         self
       end
 
-      # A node is the simplest primitive but useless on its own. Use nodes to
-      # build up a path (see Path). A node is a point in space with x and y
-      # coordinates. The coordinates must be nil if the node type is :mirror,
+      # Create an N node.
+      #
+      # The coordinates must be nil if the node type is :mirror,
       # else they must be numeric.
       #
       # A node also has a type, the simplest is :node for corners.

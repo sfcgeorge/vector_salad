@@ -9,6 +9,8 @@ Create art and practical design such as the space scene above with descriptive R
 
 The companion tool for live design can be found here: [fresh_vector_salad](https://github.com/sfcgeorge/fresh_vector_salad)
 
+[**Documentation**](https://rawgit.com/sfcgeorge/vector_salad/master/doc/index.html)
+
 ### Features
 
 VectorSalad has a number of features common to graphics tools, and some that are less common. It's still in development so may not have the breadth of features that established tools have, but it has enough to accomplish a range of graphical tasks.
@@ -83,7 +85,7 @@ If you leave `fresh_vector_salad` running, try changing the design file, e.g. ma
 
 Further information on the usage of these command line tools can be found by running them with the `--help` flag. Further examples can be found in the [examples folder](examples).
 
-See the full [Documentation](http://www.rubydoc.info/github/sfcgeorge/vector_salad) for more usage info.
+See the full [**Documentation**](https://rawgit.com/sfcgeorge/vector_salad/master/doc/index.html) for more usage info.
 
 
 ## Contributing

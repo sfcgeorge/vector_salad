@@ -7,6 +7,7 @@ Dir.glob(File.expand_path("../standard_shapes/*.rb", __FILE__)).each do |file|
 end
 
 module VectorSalad
+  # @api private
   class ExportWithMagic
     include VectorSalad::DSL
     include VectorSalad::StandardShapes

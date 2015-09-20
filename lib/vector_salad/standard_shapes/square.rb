@@ -4,14 +4,15 @@ require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
+    # Square shape with equal width and height.
     class Square < BasicShape
       include VectorSalad::Mixins::At
       attr_reader :size
 
       # Create a square with equal width and height.
       #
-      # Examples:
-      #   new(100).detail 'Square sides 100x100 at 0,0.'
+      # @example Square with sides 100x100
+      #   new(100)
       Contract Pos, {} => Square
       def initialize(size, **options)
         @size = size
@@ -20,6 +21,7 @@ module VectorSalad
         self
       end
 
+      # Convert the shape to a path
       def to_path
         Path.new(
           N.n(@x, @y),

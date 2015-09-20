@@ -1,6 +1,7 @@
 require "stringio"
 
 module VectorSalad
+  # @api private
   module Exporters
     class BaseExporter
       attr_reader :canvas

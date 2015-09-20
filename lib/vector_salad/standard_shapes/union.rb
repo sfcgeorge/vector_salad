@@ -1,21 +1,20 @@
-require 'vector_salad/standard_shapes/clip'
-require 'vector_salad/standard_shapes/multi_path'
+require "vector_salad/standard_shapes/clip"
+require "vector_salad/standard_shapes/multi_path"
 
 module VectorSalad
   module StandardShapes
+    # Unite the contained shapes.
     class Union < Clip
-      # Unite paths.
       # The first path is used as the subject, subsequent paths are united
       # with the first.
       #
-      # Examples:
-      #
+      # @example
       #   Union.new do
       #     canvas << Path.new([0,0], [90,90], [0,90])
       #     canvas << Path.new([50,0], [95,0], [50, 70])
       #   end
       #
-      #   # Using DSL:
+      # @example Using DSL:
       #   union do
       #     path([0,0], [90,90], [0,90])
       #     path([50,0], [95,0], [50, 70])

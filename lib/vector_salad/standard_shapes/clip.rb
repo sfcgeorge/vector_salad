@@ -1,21 +1,20 @@
-require 'clipper'
+require "clipper"
 
-require 'vector_salad/dsl'
-require 'vector_salad/canvas'
-require 'vector_salad/standard_shapes/multi_path'
+require "vector_salad/dsl"
+require "vector_salad/canvas"
+require "vector_salad/standard_shapes/multi_path"
 
 module VectorSalad
   module StandardShapes
+    # Perform a clipping operation on the contained paths or shapes.
+    # It's easier to use one of the subclasses;
+    # (see {Difference}, {Intersection}, {Union}, {Exclusion}).
     class Clip < BasicShape
       include VectorSalad::DSL
       include VectorSalad::StandardShapes
 
-      # Perform a clipping operation on a set of paths or shapes.
       # The first path is used as the subject, subsequent paths are applied to
       # the first using the specified operation.
-      #
-      # It's easier to use one of the subclasses;
-      # (see {Difference}, {Intersection}, {Union}, {Exclusion}).
       Contract Or[*%i(difference intersection union xor)], {}, Proc => MultiPath
       def initialize(operation, **options, &block)
         instance_eval(&block) # canvas is populated
@@ -24,7 +23,7 @@ module VectorSalad
 
         i = 0
         canvas.each do |shape|
-          method = i == 0 ? 'subject' : 'clip'
+          method = i == 0 ? "subject" : "clip"
           path = shape.to_simple_path.to_a
           if path[0][0].instance_of? Array # MultiPath
             clipper.send("add_#{method}_polygons".to_sym, path)
@@ -39,10 +38,12 @@ module VectorSalad
         )
       end
 
+      # The canvas the clipping is done on.
       def canvas
         @canvas ||= VectorSalad::Canvas.new
       end
 
+      # Convert the shape to a path
       def to_path
         @path
       end

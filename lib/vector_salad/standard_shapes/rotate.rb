@@ -1,12 +1,10 @@
-require 'vector_salad/standard_shapes/transform'
+require "vector_salad/standard_shapes/transform"
 
 module VectorSalad
   module StandardShapes
+    # Rotates the contained shapes by the specified angle about the origin.
     class Rotate < Transform
-      # Rotates the contained shapes by the specified angle about the origin.
-      #
-      # Examples:
-      #
+      # @example
       #   rotate(45) do
       #     triangle(30, at: [50, -50])
       #     pentagon(40, at: [50, -100])

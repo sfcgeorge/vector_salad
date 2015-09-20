@@ -1,4 +1,5 @@
 module VectorSalad
+  # @api private
   class ShapeProxy
     attr_reader :shape
 

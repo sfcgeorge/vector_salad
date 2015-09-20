@@ -2,6 +2,7 @@ require "vector_salad/standard_shapes/polygon"
 
 module VectorSalad
   module StandardShapes
+    # Perfect heart shape.
     class Heart < BasicShape
       # Create a perfect heart
       Contract Pos, {} => Heart
@@ -16,13 +17,14 @@ module VectorSalad
           circle(r)[-r, 0]
           circle(r)[r, 0]
           difference do
-            square(l)[-l/2, -l/2].rotate(45).move(0, r2 / 2)
+            square(l)[-l / 2, -l / 2].rotate(45).move(0, r2 / 2)
             square(l * 2)[-l, -l * 2]
           end
         end
         self
       end
 
+      # Convert the shape to a path
       def to_path
         @shape
       end

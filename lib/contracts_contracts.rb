@@ -1,7 +1,7 @@
-# @private
+# @api private
 module Contracts
   class Coords
-    def self.valid? val
+    def self.valid?(val)
       Maybe[[Num, Num]].valid? val
     end
 
@@ -11,7 +11,7 @@ module Contracts
   end
 
   class Coord
-    def self.valid? val
+    def self.valid?(val)
       Num.valid? val
     end
 
@@ -21,7 +21,7 @@ module Contracts
   end
 
   class PolySides
-    def self.valid? val
+    def self.valid?(val)
       Num.valid?(val) && val >= 3
     end
 

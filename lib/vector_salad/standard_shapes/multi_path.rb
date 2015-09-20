@@ -1,21 +1,22 @@
-require 'vector_salad/standard_shapes/basic_shape'
-require 'vector_salad/standard_shapes/n'
-require 'vector_salad/interpolate'
+require "vector_salad/standard_shapes/basic_shape"
+require "vector_salad/standard_shapes/n"
+require "vector_salad/interpolate"
 
 module VectorSalad
   module StandardShapes
+    # MultiPath shape is a collection of Paths.
+    # It is mainly to store the result of {Clip} operations.
     class MultiPath < BasicShape
       attr_reader :paths, :closed
 
-      # A MultiPath is a collection of Paths.
-      # It is mainly the result of {Clip} operations.
       # See {Path} for details on constructing paths.
       #
-      # Examples:
+      # @example
       #   new(
       #     Path.n([0,0], [0,300], [300,300], [300,0], [0,0]),
       #     Path.n([100,100], [200,100], [200,200], [100,200], [100,100])
       #   )
+      # @example
       #   new(
       #     [[0,0], [0,300], [300,300], [300,0], [0,0]],
       #     [[100,100], [200,100], [200,200], [100,200], [100,100]]
@@ -56,22 +57,32 @@ module VectorSalad
         each_send(:scale, multiplier)
       end
 
+      # Convert the shape to a path
       def to_path
         self
       end
 
+      # Convert the complex paths in the MultiPath to bezier paths.
+      def to_bezier_path
+        self.class.new(*@paths.map(&:to_bezier_path), **@options)
+      end
+
+      # Convert the complex paths in the MultiPath to cubic bezier paths only.
       def to_cubic_path
         self.class.new(*@paths.map(&:to_cubic_path), **@options)
       end
 
+      # Convert the complex paths in the MultiPath to simple paths.
       def to_simple_path
         self.class.new(*@paths.map(&:to_simple_path), **@options)
       end
 
+      # Returns self
       def to_multi_path
         self
       end
 
+      # Return an array of paths that are and array of node coordinates.
       def to_a
         @paths.map(&:to_a)
       end

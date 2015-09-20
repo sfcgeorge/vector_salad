@@ -2,10 +2,11 @@ require "vector_salad/standard_shapes/polygon"
 
 module VectorSalad
   module StandardShapes
+    # Equilateral triangle shape.
     class Triangle < Polygon
-      # Create an equilateral triangle.
+      # Create a new equilateral triangle.
       #
-      # Examples:
+      # @example
       #   new(100)
       def initialize(radius, **options)
         super(3, radius, **options)

@@ -1,11 +1,12 @@
-require 'vector_salad/standard_shapes/polygon'
+require "vector_salad/standard_shapes/polygon"
 
 module VectorSalad
   module StandardShapes
+    # Regular hexagon shape.
     class Hexagon < Polygon
       # Create a regular hexagon.
       #
-      # Examples:
+      # @example
       #   new(100)
       def initialize(radius, **options)
         super(6, radius, **options)

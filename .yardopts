@@ -2,4 +2,5 @@
 --title 'VectorSalad Documentation'
 --charset utf-8
 --markup markdown
+--hide-api private
 'lib/**/*.rb' - '*.md'

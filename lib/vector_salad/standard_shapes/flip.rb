@@ -1,12 +1,18 @@
-require 'vector_salad/standard_shapes/transform'
+require "vector_salad/standard_shapes/transform"
 
 module VectorSalad
   module StandardShapes
+    # Flip the contained shapes.
     class Flip < Transform
       # Flip the contained shapes on the specified axis.
       #
-      # Examples:
+      # @example
+      #   Flip.new(:x) do
+      #     canvas << Triangle.new(30, at: [50, -50])
+      #     canvas << Pentagon.new(40, at: [50, -100])
+      #   end
       #
+      # @example Using DSL:
       #   flip(:x) do
       #     triangle(30, at: [50, -50])
       #     pentagon(40, at: [50, -100])

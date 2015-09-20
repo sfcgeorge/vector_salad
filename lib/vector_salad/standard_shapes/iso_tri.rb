@@ -4,6 +4,7 @@ require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
+    # Isosceles or right-angle triangle shape.
     class IsoTri < BasicShape
       include VectorSalad::Mixins::At
 
@@ -11,8 +12,7 @@ module VectorSalad
 
       # Create an isosceles or right-angle triangle.
       #
-      # Examples:
-      #
+      # @example
       #   new(100)
       #   new(100, 150)
       #
@@ -26,6 +26,7 @@ module VectorSalad
         self
       end
 
+      # Convert the shape to a path
       def to_path
         Path.new(
           N.n(@x, @y),

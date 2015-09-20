@@ -1,18 +1,21 @@
-require 'vector_salad/standard_shapes/transform'
+require "vector_salad/standard_shapes/transform"
 
 module VectorSalad
   module StandardShapes
+    # Jitter the position of nodes in the contained shapes randomly.
     class Jitter < Transform
-      # Moves the contained shapes by the specified x and y amounts relatively.
+      # @example
+      #   Jitter.new(5) do
+      #     canvas << Triangle.new(30, at: [50, -50])
+      #     canvas << Pentagon.new(40, at: [50, -100])
+      #   end
       #
-      # Examples:
-      #
-      #   move(50, -10) do
+      # @example Using DSL:
+      #   jitter(5) do
       #     triangle(30, at: [50, -50])
       #     pentagon(40, at: [50, -100])
       #   end
-
-      # Jitter the position of nodes in a Path randomly.
+      #
       # @param max The maximum offset
       # @param min The minimum offset (default 0)
       # @param fn The quantization number of sides

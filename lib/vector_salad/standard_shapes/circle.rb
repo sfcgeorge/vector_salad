@@ -4,13 +4,14 @@ require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
-    class Circle < Path
+    # Perfect circle shape.
+    class Circle < BasicShape # Used to inherit from Path, check still works
       include VectorSalad::Mixins::At
       attr_reader :radius
 
       # Create a perfectly round circle.
       #
-      # Examples do
+      # @example
       #   new(100)
       Contract Pos, {} => Circle
       def initialize(radius, **options)
@@ -20,6 +21,7 @@ module VectorSalad
         self
       end
 
+      # Convert the shape to a path
       def to_path
         # http://stackoverflow.com/a/13338311
         # c = 4 * (Math.sqrt(2) - 1) / 3
@@ -46,6 +48,10 @@ module VectorSalad
         )
       end
 
+      # Flatten the circle into many small straight line segments.
+      #
+      # @param fn The number of segments
+      Contract Maybe[Num] => Path
       def to_simple_path(fn = nil)
         fn ||= (@radius * 4).ceil
 

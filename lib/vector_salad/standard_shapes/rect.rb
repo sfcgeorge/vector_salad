@@ -4,13 +4,14 @@ require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
+    # Rectangle shape.
     class Rect < BasicShape
       include VectorSalad::Mixins::At
       attr_reader :width, :height
 
       # Create a rectangle with specified width and height.
       #
-      # Examples:
+      # @example
       #   new(100, 200)
       Contract Pos, Pos, {} => Rect
       def initialize(width, height, **options)
@@ -20,6 +21,7 @@ module VectorSalad
         self
       end
 
+      # Convert the shape to a path
       def to_path
         Path.new(
           N.n(@x, @y),

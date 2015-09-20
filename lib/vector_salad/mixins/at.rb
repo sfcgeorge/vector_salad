@@ -1,5 +1,6 @@
 module VectorSalad
   module Mixins
+    # Mixin for positioning shapes.
     module At
       include Contracts
 

@@ -4,13 +4,14 @@ require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
+    # Oval shape.
     class Oval < BasicShape
       include VectorSalad::Mixins::At
       attr_reader :width, :height
 
       # Create an oval.
       #
-      # Examples:
+      # @example
       #   new(100, 200)
       Contract Pos, Pos, {} => Oval
       def initialize(width, height, **options)
@@ -20,6 +21,7 @@ module VectorSalad
         self
       end
 
+      # Convert the shape to a path
       def to_path
         # http://stackoverflow.com/a/13338311
         # c = 4 * (Math.sqrt(2) - 1) / 3

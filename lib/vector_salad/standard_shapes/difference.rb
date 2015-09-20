@@ -1,21 +1,20 @@
-require 'vector_salad/standard_shapes/clip'
-require 'vector_salad/standard_shapes/multi_path'
+require "vector_salad/standard_shapes/clip"
+require "vector_salad/standard_shapes/multi_path"
 
 module VectorSalad
   module StandardShapes
+    # Subtract the contained shapes.
     class Difference < Clip
-      # Subtract paths.
       # The first path is used as the subject, subsequent paths are subtracted
       # from the first.
       #
-      # Examples:
-      #
+      # @example
       #   Difference.new do
       #     canvas << Path.new([0,0], [90,90], [0,90])
       #     canvas << Path.new([50,0], [95,0], [50, 70])
       #   end
       #
-      #   # Using DSL:
+      # @example Using DSL:
       #   difference do
       #     path([0,0], [90,90], [0,90])
       #     path([50,0], [95,0], [50, 70])

@@ -1,11 +1,12 @@
-# Code adapted from:
-# http://jeremykun.com/2013/05/11/bezier-curves-and-picasso/
-#
-# Interpolate a cubic bezier spline into straight line segments,
-# using the De Casteljau algorithm.
 module VectorSalad
+  # Code adapted from:
+  # http://jeremykun.com/2013/05/11/bezier-curves-and-picasso/
+  #
+  # Interpolate a cubic bezier spline into straight line segments,
+  # using the De Casteljau algorithm.
+  #
+  # @api private
   class Interpolate
-    #TOLERANCE = 10 # anything below 50 is roughly good-looking
     TOLERANCE = 0.2 # anything below 50 is roughly good-looking
 
     def initialize
@@ -25,10 +26,10 @@ module VectorSalad
     # Early stopping function for the Casteljau algorithm.
     # Is the curve flat enough for visual purposes?
     def flat_enough?(curve)
-      ax = (3.0*curve[1][0] - 2.0*curve[0][0] - curve[3][0])**2
-      ay = (3.0*curve[1][1] - 2.0*curve[0][1] - curve[3][1])**2
-      bx = (3.0*curve[2][0] - curve[0][0] - 2.0*curve[3][0])**2
-      by = (3.0*curve[2][1] - curve[0][1] - 2.0*curve[3][1])**2
+      ax = (3.0 * curve[1][0] - 2.0 * curve[0][0] - curve[3][0])**2
+      ay = (3.0 * curve[1][1] - 2.0 * curve[0][1] - curve[3][1])**2
+      bx = (3.0 * curve[2][0] - curve[0][0] - 2.0 * curve[3][0])**2
+      by = (3.0 * curve[2][1] - curve[0][1] - 2.0 * curve[3][1])**2
 
       [ax, bx].max + [ay, by].max <= TOLERANCE
     end
@@ -40,7 +41,7 @@ module VectorSalad
     def midpoints(points)
       midpoints = Array.new(points.length - 1)
       midpoints.each_index do |i|
-        midpoints[i] = midpoint(points[i], points[i+1])
+        midpoints[i] = midpoint(points[i], points[i + 1])
       end
       midpoints
     end
@@ -51,7 +52,7 @@ module VectorSalad
       third = midpoints(second)
 
       [[curve[0], first[0], second[0], third[0]],
-      [third[0], second[1], first[2], curve[3]]]
+       [third[0], second[1], first[2], curve[3]]]
     end
   end
 end
