@@ -1,7 +1,6 @@
 # VectorSalad
 
 [![Gem Version](https://badge.fury.io/rb/vector_salad.svg)](http://badge.fury.io/rb/vector_salad)
-[![Inline docs](http://inch-ci.org/github/sfcgeorge/vector_salad.svg?branch=master)](http://inch-ci.org/github/sfcgeorge/vector_salad)
 [![Code Climate](https://codeclimate.com/github/sfcgeorge/vector_salad/badges/gpa.svg)](https://codeclimate.com/github/sfcgeorge/vector_salad)
 
 ![Space---created with VectorSalad](examples/space.png)
