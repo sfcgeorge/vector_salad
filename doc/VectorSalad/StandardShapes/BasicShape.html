@@ -1,0 +1,1079 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: VectorSalad::StandardShapes::BasicShape
+  
+    &mdash; VectorSalad Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!VectorSalad/StandardShapes/BasicShape.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (B)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../VectorSalad.html" title="VectorSalad (module)">VectorSalad</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../StandardShapes.html" title="VectorSalad::StandardShapes (module)">StandardShapes</a></span></span>
+     &raquo; 
+    <span class="title">BasicShape</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: VectorSalad::StandardShapes::BasicShape
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">VectorSalad::StandardShapes::BasicShape</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2">Forwardable</dd>
+      
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/vector_salad/standard_shapes/basic_shape.rb<span class="defines">,<br />
+  lib/vector_salad/exporters/svg_exporter.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>All shapes must inherit from BasicShape,
+with the exception of N node.
+It alows many usefulmethods in <span class='object_link'><a href="Path.html" title="VectorSalad::StandardShapes::Path (class)">Path</a></span> to be called on the shape
+by delegating them, so see <span class='object_link'><a href="Path.html" title="VectorSalad::StandardShapes::Path (class)">Path</a></span> for more information on all the
+methods that shapes can use.</p>
+
+<p>You can&#39;t use BasicShape directly.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="Circle.html" title="VectorSalad::StandardShapes::Circle (class)">Circle</a></span>, <span class='object_link'><a href="Clip.html" title="VectorSalad::StandardShapes::Clip (class)">Clip</a></span>, <span class='object_link'><a href="Custom.html" title="VectorSalad::StandardShapes::Custom (class)">Custom</a></span>, <span class='object_link'><a href="Heart.html" title="VectorSalad::StandardShapes::Heart (class)">Heart</a></span>, <span class='object_link'><a href="IsoTri.html" title="VectorSalad::StandardShapes::IsoTri (class)">IsoTri</a></span>, <span class='object_link'><a href="MultiPath.html" title="VectorSalad::StandardShapes::MultiPath (class)">MultiPath</a></span>, <span class='object_link'><a href="Oval.html" title="VectorSalad::StandardShapes::Oval (class)">Oval</a></span>, <span class='object_link'><a href="Path.html" title="VectorSalad::StandardShapes::Path (class)">Path</a></span>, <span class='object_link'><a href="Polygon.html" title="VectorSalad::StandardShapes::Polygon (class)">Polygon</a></span>, <span class='object_link'><a href="Rect.html" title="VectorSalad::StandardShapes::Rect (class)">Rect</a></span>, <span class='object_link'><a href="Square.html" title="VectorSalad::StandardShapes::Square (class)">Square</a></span></p>
+</div>
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">- (Object) <strong>options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute options.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flip-instance_method" title="#flip (instance method)">- (Object) <strong>flip</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flip_x-instance_method" title="#flip_x (instance method)">- (Object) <strong>flip_x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flip_y-instance_method" title="#flip_y (instance method)">- (Object) <strong>flip_y</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#jitter-instance_method" title="#jitter (instance method)">- (Object) <strong>jitter</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#move-instance_method" title="#move (instance method)">- (Object) <strong>move</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rotate-instance_method" title="#rotate (instance method)">- (Object) <strong>rotate</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scale-instance_method" title="#scale (instance method)">- (Object) <strong>scale</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_a-instance_method" title="#to_a (instance method)">- (Object) <strong>to_a</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_bezier_path-instance_method" title="#to_bezier_path (instance method)">- (Object) <strong>to_bezier_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_cubic_path-instance_method" title="#to_cubic_path (instance method)">- (Object) <strong>to_cubic_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_multi_path-instance_method" title="#to_multi_path (instance method)">- (Object) <strong>to_multi_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_simple_path-instance_method" title="#to_simple_path (instance method)">- (Object) <strong>to_simple_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_svg-instance_method" title="#to_svg (instance method)">- (Object) <strong>to_svg</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Export the shape to an svg string.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="options=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="options-instance_method">
+  
+    - (<tt>Object</tt>) <strong>options</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
+  <span class='ivar'>@options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="flip-instance_method">
+  
+    - (<tt>Object</tt>) <strong>flip</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#flip-instance_method" title="VectorSalad::StandardShapes::Path#flip (method)">Path#flip</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 23</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:flip</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flip_x-instance_method">
+  
+    - (<tt>Object</tt>) <strong>flip_x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#flip_x-instance_method" title="VectorSalad::StandardShapes::Path#flip_x (method)">Path#flip_x</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 24</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:flip_x</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flip_y-instance_method">
+  
+    - (<tt>Object</tt>) <strong>flip_y</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#flip_y-instance_method" title="VectorSalad::StandardShapes::Path#flip_y (method)">Path#flip_y</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 25</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:flip_y</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="jitter-instance_method">
+  
+    - (<tt>Object</tt>) <strong>jitter</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#jitter-instance_method" title="VectorSalad::StandardShapes::Path#jitter (method)">Path#jitter</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 28</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:jitter</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="move-instance_method">
+  
+    - (<tt>Object</tt>) <strong>move</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#move-instance_method" title="VectorSalad::StandardShapes::Path#move (method)">Path#move</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 27</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:move</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rotate-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rotate</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#rotate-instance_method" title="VectorSalad::StandardShapes::Path#rotate (method)">Path#rotate</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 26</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:rotate</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="scale-instance_method">
+  
+    - (<tt>Object</tt>) <strong>scale</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#scale-instance_method" title="VectorSalad::StandardShapes::Path#scale (method)">Path#scale</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 29</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:scale</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_a-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_a</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#to_a-instance_method" title="VectorSalad::StandardShapes::Path#to_a (method)">Path#to_a</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 34</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_a</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_bezier_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_bezier_path</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#to_bezier_path-instance_method" title="VectorSalad::StandardShapes::Path#to_bezier_path (method)">Path#to_bezier_path</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 31</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_bezier_path</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_cubic_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_cubic_path</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#to_cubic_path-instance_method" title="VectorSalad::StandardShapes::Path#to_cubic_path (method)">Path#to_cubic_path</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 32</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_cubic_path</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_multi_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_multi_path</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#to_multi_path-instance_method" title="VectorSalad::StandardShapes::Path#to_multi_path (method)">Path#to_multi_path</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 33</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_multi_path</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_simple_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_simple_path</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Path.html#to_simple_path-instance_method" title="VectorSalad::StandardShapes::Path#to_simple_path (method)">Path#to_simple_path</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 30</span>
+
+<span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_simple_path</span><span class='comma'>,</span> <span class='symbol'>:to_path</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_svg-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_svg</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Export the shape to an svg string</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/exporters/svg_exporter.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_svg'>to_svg</span>
+  <span class='id identifier rubyid_to_path'>to_path</span><span class='period'>.</span><span class='id identifier rubyid_to_svg'>to_svg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Sep 20 21:08:09 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>

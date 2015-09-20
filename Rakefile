@@ -1,4 +1,4 @@
-task default: %w(release)
+task default: %w(docgen)
 
 task :clean do
   sh "git rm lib -rf"
@@ -8,7 +8,15 @@ task :source do
   sh "git checkout master -- lib"
 end
 
-task :docs do
+task :commit do
+  sh 'git commit -am "Update docs."'
+end
+
+task :push do
+  sh "git push"
+end
+
+task :yard do
   sh "yard"
 end
 
@@ -16,8 +24,13 @@ task :stats do
   sh "yard stats --list-undoc"
 end
 
-task :release do
+task :docgen do
   Rake::Task[:source].execute
-  Rake::Task[:docs].execute
+  Rake::Task[:yard].execute
   Rake::Task[:clean].execute
+end
+
+task :release do
+  Rake::Task[:commit].execute
+  Rake::Task[:push].execute
 end
