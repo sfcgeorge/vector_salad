@@ -82,7 +82,7 @@ The window displayed looks as follows on OS X.
 
 If you leave `fresh_vector_salad` running, try changing the design file, e.g. making the stars green. When you save, `fresh_vector_salad` will automatically detect the change, re-compile and display the new result. This makes doing "live" design with VectorSalad quick and easy. 
 
-Further information on the usage of these command line tools can be found by running them with the `--help` flag. Further examples can be found in the examples folder.
+Further information on the usage of these command line tools can be found by running them with the `--help` flag. Further examples can be found in the [examples folder](examples).
 
 See the full [Documentation](http://www.rubydoc.info/github/sfcgeorge/vector_salad) for more usage info.
 
