@@ -47,7 +47,7 @@ module VectorSalad
       end
 
       def to_simple_path(fn = nil)
-        fn ||= (@radius * 2).ceil
+        fn ||= (@radius * 4).ceil
 
         nodes = []
         arc = (2.0 * Math::PI) / fn
