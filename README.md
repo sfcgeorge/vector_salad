@@ -2,14 +2,14 @@
 
 [![Gem Version](https://badge.fury.io/rb/vector_salad.svg)](http://badge.fury.io/rb/vector_salad)
 [![Code Climate](https://codeclimate.com/github/sfcgeorge/vector_salad/badges/gpa.svg)](https://codeclimate.com/github/sfcgeorge/vector_salad)
+[**Documentation**](http://sfcgeorge.github.io/vector_salad/doc/)
 
-![Space---created with VectorSalad](https://raw.githubusercontent.com/sfcgeorge/vector_salad/master/examples/space.png)
+![Space---created with VectorSalad](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/space.png)
 
 Create art and practical design such as the space scene above with descriptive Ruby code!
 
 The companion tool for live design can be found here: [fresh_vector_salad](https://github.com/sfcgeorge/fresh_vector_salad)
 
-[**Documentation**](https://rawgit.com/sfcgeorge/vector_salad/master/doc/index.html)
 
 ### Features
 
@@ -79,13 +79,13 @@ fresh_vector_salad -p /absolute/path/to/file/ -f gold_star
 
 The window displayed looks as follows on OS X. 
 
-![fresh\_vector\_salad window](https://raw.githubusercontent.com/sfcgeorge/vector_salad/master/examples/space.png)
+![fresh\_vector\_salad window](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/space.png)
 
 If you leave `fresh_vector_salad` running, try changing the design file, e.g. making the stars green. When you save, `fresh_vector_salad` will automatically detect the change, re-compile and display the new result. This makes doing "live" design with VectorSalad quick and easy. 
 
 Further information on the usage of these command line tools can be found by running them with the `--help` flag. Further examples can be found in the [examples folder](examples).
 
-See the full [**Documentation**](https://rawgit.com/sfcgeorge/vector_salad/master/doc/index.html) for more usage info.
+See the full [**Documentation**](http://sfcgeorge.github.io/vector_salad/doc/) for more usage info.
 
 
 ## Contributing
