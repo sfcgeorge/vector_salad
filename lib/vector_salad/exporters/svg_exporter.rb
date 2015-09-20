@@ -43,8 +43,7 @@ module VectorSalad
         svg << "/>"
       end
 
-      private
-
+      # @api private
       def to_svg_d_attribute
         nodes = to_bezier_path.nodes
         svg = ""

@@ -18,20 +18,20 @@ module VectorSalad
       attr_accessor :options
 
       # @!macro [attach] property
-      #   @!method $1
-      #     @see Path#$1
-      def_instance_delegator :flip, :to_path
-      def_instance_delegator :flip_x, :to_path
-      def_instance_delegator :flip_y, :to_path
-      def_instance_delegator :rotate, :to_path
-      def_instance_delegator :move, :to_path
-      def_instance_delegator :jitter, :to_path
-      def_instance_delegator :scale, :to_path
-      def_instance_delegator :to_simple_path, :to_path
-      def_instance_delegator :to_bezier_path, :to_path
-      def_instance_delegator :to_cubic_path, :to_path
-      def_instance_delegator :to_multi_path, :to_path
-      def_instance_delegator :to_a, :to_path
+      #   @!method $2
+      #     @see Path#$2
+      def_instance_delegator :to_path, :flip
+      def_instance_delegator :to_path, :flip_x
+      def_instance_delegator :to_path, :flip_y
+      def_instance_delegator :to_path, :rotate
+      def_instance_delegator :to_path, :move
+      def_instance_delegator :to_path, :jitter
+      def_instance_delegator :to_path, :scale
+      def_instance_delegator :to_path, :to_simple_path
+      def_instance_delegator :to_path, :to_bezier_path
+      def_instance_delegator :to_path, :to_cubic_path
+      def_instance_delegator :to_path, :to_multi_path
+      def_instance_delegator :to_path, :to_a
     end
   end
 end
