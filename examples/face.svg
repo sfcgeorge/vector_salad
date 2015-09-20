@@ -1,0 +1,10 @@
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="280"
+     height="300">
+
+<ellipse cx="200" cy="200" rx="80" ry="100" fill="pink"/>
+<ellipse cx="170" cy="200" rx="8" ry="6" fill="darkgreen"/>
+<ellipse cx="230" cy="200" rx="8" ry="5" fill="brown"/>
+<ellipse cx="200" cy="140" rx="70" ry="40" fill="fuchsia"/>
+</svg>
