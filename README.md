@@ -79,7 +79,7 @@ fresh_vector_salad -p /absolute/path/to/file/ -f gold_star
 
 The window displayed looks as follows on OS X. 
 
-![fresh\_vector\_salad window](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/space.png)
+![fresh\_vector\_salad window](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/fresh_vector_salad_gui.png)
 
 If you leave `fresh_vector_salad` running, try changing the design file, e.g. making the stars green. When you save, `fresh_vector_salad` will automatically detect the change, re-compile and display the new result. This makes doing "live" design with VectorSalad quick and easy. 
 
