@@ -5,6 +5,8 @@ task :clean_lib do
 end
 
 task :source do
+  sh "git show master:README.md > README.md"
+
   Rake::Task[:clean_lib].execute
   sh "git checkout master -- lib"
 
