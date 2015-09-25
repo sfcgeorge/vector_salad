@@ -4,11 +4,12 @@ module VectorSalad
     module At
       include Contracts
 
-      # Change the absolute x, y coordinates of the shape.
-      Contract Num, Num => Any
+      # Set the x, y coordinates of the shape.
+      Contract Coord, Coord => Any
       def [](x, y)
-        @x, @y = x, y
-        self
+        shape = clone
+        shape.at = [x, y]
+        shape
       end
 
       # Get the x, y coordinates of the shape.
@@ -17,11 +18,18 @@ module VectorSalad
         [@x, @y]
       end
 
+      # Set the x, y coordinates of the shape directly.
+      Contract Coords => Any
+      def at=(at)
+        @x, @y = *at
+        self
+      end
+
       # Move the shape relatively.
-      Contract Num, Num => Any
+      Contract Coord, Coord => Any
       def move(x, y)
         shape = clone
-        shape[shape.at[0] + x, shape.at[1] + y]
+        shape.at = [shape.at[0] + x, shape.at[1] + y]
         shape
       end
     end

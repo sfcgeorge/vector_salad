@@ -2,9 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/vector_salad.svg)](http://badge.fury.io/rb/vector_salad)
 [![Code Climate](https://codeclimate.com/github/sfcgeorge/vector_salad/badges/gpa.svg)](https://codeclimate.com/github/sfcgeorge/vector_salad)
-[**Documentation**](http://sfcgeorge.github.io/vector_salad/doc/)
+[![Documentation](https://img.shields.io/badge/yard-docs-blue.svg?style=flat)](http://sfcgeorge.github.io/vector_salad/doc/)
 
-![Space---created with VectorSalad](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/space.png)
+![Space---created with VectorSalad](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/space_huge.png)
 
 Create art and practical design such as the space scene above with descriptive Ruby code!
 
@@ -92,6 +92,18 @@ See the full [**Documentation**](http://sfcgeorge.github.io/vector_salad/doc/) f
 
 1. Fork it ( https://github.com/sfcgeorge/vector_salad/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+3. Run tests (all `rake` or an individual test `rake test:example[circles]`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request
+
+
+## Testing
+
+The test suite is automatically generated from examples for integration testing. Here's how it works. Each example in the /examples folder was manually created, run, and visually inspected for correctness (both the image and SVG output). The test suite re-runs all of the examples comparing the new SVG output with the old expected output to make sure nothing has changed.
+
+The whole suite can be run with `rake test` or just `rake`. They should all pass, of course. You can see more details including execution time with `rake test TESTOPTS="-v"`.
+
+An individual example test can be run with `rake test:example[circles]`. The name in the square brackets must be the name of a .rb file in the /examples folder. It can also be a partial "starts with" name, e.g. `rake test:example[circle]` will match both "circle_line_segments" and "circles".
+
+Several of the examples use randomness. If you re-run those examples then the output will change each time, this is expected and great for demos. You must not commit this changed output though as the corresponding test will then fail. When the examples were initially created and when running the tests randomness is seeded to 1 (`srand 1`) so that they don't change. If you do need to change behaviour or add an example using randomness, please add `srand 1` at the top of the example, run it, then remove the `srand` line.

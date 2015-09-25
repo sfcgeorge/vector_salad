@@ -1,5 +1,5 @@
 # Basic circle with jitter added
-circle(100).jitter(10, fn: 50)
+circle(100).jitter(5, fn: 50)
 
 # Circle at position
 circle(50)[200, 100]

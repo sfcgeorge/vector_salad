@@ -24,7 +24,7 @@ module VectorSalad
       #   donut(100)
       #
       # @param name The name of your shape in snake_case
-      Contract Symbol, {}, Proc => Custom
+      Contract Symbol, {}, Proc => Any
       def initialize(name, **options, &block)
         ::VectorSalad::StandardShapes.const_set(name.to_s.capitalize.to_sym, Class.new(BasicShape) do
           include VectorSalad::DSL

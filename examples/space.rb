@@ -1,4 +1,4 @@
-QUALITY = 8 # 8
+QUALITY = 1 # 8
 WIDTH = 1000
 HEIGHT = (WIDTH / 16.0 * 9.0).round
 GOLDEN = 1.618
@@ -20,7 +20,7 @@ def star(r, at:, shift: 30, bias: 2)
   blue = [col, col, 255]
   fill_a = [red, *[blue] * bias].sample
   fill = "rgb(#{fill_a.join(',')})"
-  circle(r, at: at, fill: fill)
+  circle(r, fill: fill)[*at]
 end
 
 def background(n:, star:)
@@ -58,7 +58,7 @@ def asteroid(r, at:)
   _c_min, c_max = 60, 120
   c = c_max / r_max * r
   col = "rgb(#{c}, #{c}, #{c})"
-  circle(r, at: at, fill: col).jitter(r / 8, fn: r)
+  circle(r, fill: col)[*at].jitter(r / 8, fn: r)
 
   Random.rand(1..6).times { crater(r: r, x: at[0], y: at[1], c: c) }
 end
@@ -73,10 +73,10 @@ def crater(r:, x:, y:, c:)
   cy = offset * Math.sin(a) + y
   cc = c * 0.9
   col = "rgb(#{cc}, #{cc}, #{cc})"
-  circle(cr, at: [cx, cy], fill: col).jitter(cr / 4, fn: cr)
+  circle(cr, fill: col)[cx, cy].jitter(cr / 4, fn: cr)
 end
 
-rect(WIDTH, HEIGHT, fill: '#000')
+rect(WIDTH, HEIGHT, fill: "#000")
 
 background(n: 500 * QUALITY, star: 1.0 / 550)
 
@@ -91,7 +91,7 @@ asteroid(35, at: [WIDTH * 0.55, HEIGHT * 0.65])
 asteroid(40, at: [WIDTH * 0.5, HEIGHT * 0.15])
 asteroid(45, at: [WIDTH * 0.4, HEIGHT * 0.85])
 asteroid(30, at: [WIDTH * 0.91, HEIGHT * 0.13])
-asteroid(50, at: [WIDTH * 0.85, HEIGHT])
+# asteroid(50, at: [WIDTH * 0.85, HEIGHT])
 
 def helmet(size, at:)
   s15 = size / 1.5
@@ -105,7 +105,7 @@ def helmet(size, at:)
   s16 = size / 16
   s32 = size / 32
 
-  metal = '#aaa'
+  metal = "#aaa"
 
   outer = Path.new(
     N.g(0, - s2 - s32),
@@ -136,9 +136,9 @@ def helmet(size, at:)
     rotate(-20) do
       difference(fill: '#976', opacity: 0.4) do
         canvas << visor_inner
-        square(size * 2, at: [0, -s2])
-        square(size * 2, at: [-s15, s10])
-        circle(s16, at: [-s2, -s16]).jitter(s16 / 3, fn: 16)
+        square(size * 2)[0, -s2]
+        square(size * 2)[-s15, s10]
+        circle(s16)[-s2, -s16].jitter(s16 / 3, fn: 16)
       end.rotate(20)
 
       difference(fill: :white) do
@@ -165,7 +165,7 @@ def helmet(size, at:)
     end
   end
 
-  circle(s16, at: [s10, -s32], fill: metal).move(*at)
+  circle(s16, fill: metal)[s10, -s32].move(*at)
 end
 
 helmet(HEIGHT / 3 * 2, at: [WIDTH / 4 * 3, HEIGHT / 2 + HEIGHT / 16])

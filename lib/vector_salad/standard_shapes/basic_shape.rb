@@ -24,6 +24,7 @@ module VectorSalad
       def_instance_delegator :to_path, :flip_x
       def_instance_delegator :to_path, :flip_y
       def_instance_delegator :to_path, :rotate
+      def_instance_delegator :to_path, :[]
       def_instance_delegator :to_path, :move
       def_instance_delegator :to_path, :jitter
       def_instance_delegator :to_path, :scale

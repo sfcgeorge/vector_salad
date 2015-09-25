@@ -1,5 +1,7 @@
-def balloon(size, at: [0, 0], **options)
+srand 1
+custom(:balloon) do |size, **options|
   tri_size = size / 5
+  at = [0, 0]
 
   union(**options) do
     oval(size * 0.8, size)[*at]
@@ -15,7 +17,7 @@ width = height = 800
 
 square(width, fill: "lightgrey")
 
-600.times do # Confetti
+250.times do # Confetti
   r1, r2, r3 = Random.rand, Random.rand, Random.rand
   color = "rgb(#{(r1 * 255).to_i}, #{(r2 * 255).to_i}, #{(r3 * 255).to_i})"
   circle((r1 * 8).ceil, fill: color)[r3 * width, r2 * height]
@@ -26,7 +28,7 @@ end
   x = width / 2 + radius * Math.cos(t * Math::PI)
   y = height / 2 + radius * Math.sin(t * Math::PI)
 
-  balloon(45, at: [x, y], fill: (t * 10).round.odd? ? "purple" : "white")
+  balloon(45, fill: (t * 10).round.odd? ? "purple" : "white").move(x, y)
 end
 
 difference(fill: "black") do # Camera body

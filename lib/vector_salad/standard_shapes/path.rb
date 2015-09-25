@@ -44,7 +44,7 @@ module VectorSalad
 
               dx = pivot.x - source.x
               dy = pivot.y - source.y
-              node[pivot.x + dx, pivot.y + dy]
+              node.at = [pivot.x + dx, pivot.y + dy]
 
               node.type = source.type
             else
@@ -62,16 +62,19 @@ module VectorSalad
       end
 
       # Move the path absolutely.
-      Contract Num, Num => Path
+      Contract Coord, Coord => Path
       def [](x, y)
-        @nodes.map do |node|
-          node[x, y]
-        end
-        self
+        Path.new(
+          *to_path.nodes.map do |node|
+            node[x, y]
+          end,
+          closed: @closed,
+          **@options
+        )
       end
 
       # Move the path relatively.
-      Contract Num, Num => Path
+      Contract Coord, Coord => Path
       def move(x, y)
         Path.new(
           *to_path.nodes.map do |node|
@@ -117,7 +120,7 @@ module VectorSalad
       #   rotate(90)
       # @example
       #   rotate(-45)
-      Contract Num => Path
+      Contract Coord => Path
       def rotate(angle)
         theta = angle / 180.0 * Math::PI
 
@@ -140,7 +143,7 @@ module VectorSalad
       # to stretch or squash the axies.
       #
       # @param x_multiplier 1 is no change, 2 is double size, 0.5 is half, etc.
-      Contract Num, Maybe[Num] => Path
+      Contract Coord, Maybe[Coord] => Path
       def scale(x_multiplier, y_multiplier = x_multiplier)
         Path.new(
           *to_path.nodes.map do |n|
@@ -158,7 +161,7 @@ module VectorSalad
       # @param max The maximum offset
       # @param min The minimum offset (default 0)
       # @param fn The quantization number of sides
-      Contract Num, { min: Maybe[Num], fn: Maybe[Fixnum] } => Path
+      Contract Coord, { min: Maybe[Coord], fn: Maybe[Fixnum] } => Path
       def jitter(max, min: 0, fn: nil)
         Path.new(
           *to_simple_path(fn).nodes.map do |n|

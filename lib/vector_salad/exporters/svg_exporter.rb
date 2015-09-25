@@ -117,17 +117,7 @@ module VectorSalad
       end
     end
 
-    class Square
-      # Export the shape to an svg string
-      def to_svg
-        svg = "<rect x=\"#{at[0]}\" y=\"#{at[1]}\""
-        svg << " width=\"#{size}\" height=\"#{size}\""
-        svg << VectorSalad::Exporters::SvgExporter.options(@options)
-        svg << "/>"
-      end
-    end
-
-    class Rect
+    class Rect # and Square subclass
       # Export the shape to an svg string
       def to_svg
         svg = "<rect x=\"#{at[0]}\" y=\"#{at[1]}\""

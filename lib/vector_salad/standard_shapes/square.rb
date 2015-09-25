@@ -1,5 +1,4 @@
 require "vector_salad/standard_shapes/rect"
-require "vector_salad/mixins/at"
 
 module VectorSalad
   module StandardShapes
