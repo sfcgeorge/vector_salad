@@ -1,4 +1,5 @@
 --plugin contracts
+-e lib/contracts_contracts.rb
 --title 'VectorSalad Documentation'
 --charset utf-8
 --markup markdown
