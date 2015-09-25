@@ -2,7 +2,7 @@
 module Contracts
   class Coords
     def self.valid?(val)
-      Maybe[[Num, Num]].valid? val
+      Contracts::Maybe[[Contracts::Num, Contracts::Num]].valid? val
     end
 
     def self.to_s
@@ -12,7 +12,7 @@ module Contracts
 
   class Coord
     def self.valid?(val)
-      Num.valid? val
+      Contracts::Num.valid? val
     end
 
     def self.to_s

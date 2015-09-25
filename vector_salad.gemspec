@@ -24,8 +24,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "pretty_backtrace", "~> 0.1"
   spec.add_dependency "ruby_clipper", "~> 5.0"
-  spec.add_dependency "spiro", "~> 0.0"
-  spec.add_dependency "contracts", "~> 0.7"
+  spec.add_dependency "spiro", "~> 0.3"
+  spec.add_dependency "contracts", "~> 0.12"
 
   #spec.add_development_dependency "yard", "~> 0.8"
   #spec.add_development_dependency "yard-contracts"#, "~> 0.1"
