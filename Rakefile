@@ -15,7 +15,8 @@ task :source do
 end
 
 task :commit do
-  sh 'git commit -am "Update docs."'
+  sh "git add --all"
+  sh 'git commit -m "Update docs."'
 end
 
 task :push do
