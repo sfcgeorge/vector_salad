@@ -1,14 +1,14 @@
-square(500, fill: '#01205C') # background
+square(500, fill: "#01205C") # background
 
-circle(200, at: [250, 250], fill: 'white') # white circle
+circle(200, fill: "white")[250, 250] # white circle
 
-intersection(fill: '#FC002C') do # red circle
-  circle(190, at: [250, 250])
-  circle((190 * 1.6).round, at: [30, 60])
+intersection(fill: "#FC002C") do # red circle
+  circle(190)[250, 250]
+  circle((190 * 1.6).round)[30, 60]
 end
 
-difference(fill: '#0B60BB') do # blue circle
-  circle(190, at: [250, 250])
+difference(fill: "#0B60BB") do # blue circle
+  circle(190)[250, 250]
   path(
     N.n(0, 0),
     N.n(420, 0),

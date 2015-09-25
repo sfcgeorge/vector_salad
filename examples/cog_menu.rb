@@ -1,12 +1,5 @@
-U = 20 # "unit", set to 1 for export at real scale, 10 or more for designing
+Numeric.unit = 20 # set to 1 for export at real scale, 10 or more for designing
 GRID = true # turn on or off the grid lines
-
-# Add ~ method for multiplying a number by the "unit"
-class ::Fixnum
-  def ~
-    self * U
-  end
-end
 
 union do
   difference do

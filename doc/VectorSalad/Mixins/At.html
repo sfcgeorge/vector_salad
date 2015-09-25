@@ -130,7 +130,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Change the absolute x, y coordinates of the shape.</p>
+    <span class="summary_desc"><div class='inline'><p>Set the x, y coordinates of the shape.</p>
 </div></span>
   
 </li>
@@ -154,6 +154,29 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Get the x, y coordinates of the shape.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#at%3D-instance_method" title="#at= (instance method)">- (Any) <strong>at=</strong>(at) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Set the x, y coordinates of the shape directly.</p>
 </div></span>
   
 </li>
@@ -208,7 +231,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Change the absolute x, y coordinates of the shape.</p>
+    <p>Set the x, y coordinates of the shape.</p>
 
 
   </div>
@@ -222,7 +245,7 @@
         <span class='name'>x</span>
       
       
-        <span class='type'>(<tt>Num</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Coord</span></tt>)</span>
       
       
       
@@ -233,7 +256,7 @@
         <span class='name'>y</span>
       
       
-        <span class='type'>(<tt>Num</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Coord</span></tt>)</span>
       
       
       
@@ -264,14 +287,16 @@
 9
 10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/vector_salad/mixins/at.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='ivar'>@x</span><span class='comma'>,</span> <span class='ivar'>@y</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span>
-  <span class='kw'>self</span>
+  <span class='id identifier rubyid_shape'>shape</span> <span class='op'>=</span> <span class='id identifier rubyid_clone'>clone</span>
+  <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_shape'>shape</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -316,15 +341,85 @@
       <pre class="lines">
 
 
-16
 17
-18</pre>
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/mixins/at.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/mixins/at.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_at'>at</span>
   <span class='lbracket'>[</span><span class='ivar'>@x</span><span class='comma'>,</span> <span class='ivar'>@y</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="at=-instance_method">
+  
+    - (<tt>Any</tt>) <strong>at=</strong>(at) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Set the x, y coordinates of the shape directly.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>at</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Coords</span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/mixins/at.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_at='>at=</span><span class='lparen'>(</span><span class='id identifier rubyid_at'>at</span><span class='rparen'>)</span>
+  <span class='ivar'>@x</span><span class='comma'>,</span> <span class='ivar'>@y</span> <span class='op'>=</span> <span class='op'>*</span><span class='id identifier rubyid_at'>at</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -356,7 +451,7 @@
         <span class='name'>x</span>
       
       
-        <span class='type'>(<tt>Num</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Coord</span></tt>)</span>
       
       
       
@@ -367,7 +462,7 @@
         <span class='name'>y</span>
       
       
-        <span class='type'>(<tt>Num</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Coord</span></tt>)</span>
       
       
       
@@ -395,18 +490,18 @@
       <pre class="lines">
 
 
-22
-23
-24
-25
-26</pre>
+30
+31
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/mixins/at.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/mixins/at.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_move'>move</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_shape'>shape</span> <span class='op'>=</span> <span class='id identifier rubyid_clone'>clone</span>
-  <span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_y'>y</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_y'>y</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_shape'>shape</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -419,7 +514,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Sep 20 22:07:30 2015 by
+  Generated on Fri Sep 25 12:52:43 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

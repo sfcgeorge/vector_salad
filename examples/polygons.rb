@@ -1,9 +1,8 @@
-polygon(3, 70, at: [390,530], fill: 'yellow')
-polygon(4, 70, at: [390,170], fill: 'blue')
-pentagon(90, at: [130,120], fill: 'red')
-hexagon(100, at: [300,350], fill: 'green')
-polygon(7, 60, at: [100,360], fill: 'orange')
-polygon(8, 120, at: [190,650], fill: 'purple')
+polygon(3, 70, fill: "yellow")[390, 530]
+polygon(4, 70, fill: "blue")[390, 170]
+pentagon(90, fill: "red")[130, 120]
+hexagon(100, fill: "green")[300, 350]
+polygon(7, 60, fill: "orange")[100, 360]
+polygon(8, 120, fill: "purple")[190, 650]
 
-square(10, at: [500,800])
-
+square(10)[500, 800]

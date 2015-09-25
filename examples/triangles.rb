@@ -1,8 +1,8 @@
 # Isoscelese right-angle triangle
-iso_tri(50, at: [100, 50])
+iso_tri(50)[100, 50]
 
 # Simple equilateral triangle
-triangle(50, at: [100,220], fill: '#666')
+triangle(50, fill: "#666")[100,220]
 
 # Isoscelese triangle
-iso_tri(50, 100, at: [100, 300], fill: 'lightgrey')
+iso_tri(50, 100, fill: "lightgrey")[100, 300]

@@ -1,4 +1,4 @@
-task default: %w(docgen)
+task default: %w(stats)
 
 task :clean_lib do
   sh "git rm lib -rf --ignore-unmatch"
@@ -26,16 +26,19 @@ task :yard do
   sh "yard"
 end
 
+desc "Show YARD coverage stats"
 task :stats do
   sh "yard stats --list-undoc"
 end
 
+desc "Generate documentation"
 task :docgen do
   Rake::Task[:source].execute
   Rake::Task[:yard].execute
   Rake::Task[:clean_lib].execute
 end
 
+desc "Commit and push a doc update"
 task :release do
   Rake::Task[:commit].execute
   Rake::Task[:push].execute

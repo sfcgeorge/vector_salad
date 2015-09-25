@@ -13,8 +13,8 @@ path(
   stroke_width: 4
 )
 
-circle(5, at: n1.at, fill: :green)
-circle(5, at: n2.at, fill: :green)
-circle(5, at: s1.at, fill: :blue)
-circle(5, at: s2.at, fill: :blue)
-circle(5, at: s3.at, fill: :blue)
+circle(5, fill: :green)[*n1.at]
+circle(5, fill: :green)[*n2.at]
+circle(5, fill: :blue)[*s1.at]
+circle(5, fill: :blue)[*s2.at]
+circle(5, fill: :blue)[*s3.at]
