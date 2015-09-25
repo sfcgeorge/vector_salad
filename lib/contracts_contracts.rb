@@ -22,11 +22,11 @@ module Contracts
 
   class PolySides
     def self.valid?(val)
-      Num.valid?(val) && val >= 3
+      val && val.is_a?(Integer) && val >= 3
     end
 
     def self.to_s
-      "Num; sides of the polygon, minimum of 3"
+      "Int; sides of the polygon, minimum of 3"
     end
   end
 end

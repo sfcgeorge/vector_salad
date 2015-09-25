@@ -23,10 +23,12 @@ module VectorSalad
 
       # Convert the shape to a path
       def to_path
+        # Standard:
         # http://stackoverflow.com/a/13338311
         # c = 4 * (Math.sqrt(2) - 1) / 3
         # c = 0.5522847498307936
         #
+        # Better:
         # http://spencermortensen.com/articles/bezier-circle/
         c = 0.551915024494
         d = c * @radius
@@ -51,7 +53,7 @@ module VectorSalad
       # Flatten the circle into many small straight line segments.
       #
       # @param fn The number of segments
-      Contract Maybe[Num] => Path
+      Contract Maybe[PolySides] => Path
       def to_simple_path(fn = nil)
         fn ||= (@radius * 4).ceil
 
