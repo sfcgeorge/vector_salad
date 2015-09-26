@@ -632,12 +632,12 @@
         <span class='name'>closed</span>
       
       
-        <span class='type'>(<tt>Maybe[Bool]</tt>)</span>
+        <span class='type'>(<tt>[]</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>+Bool or nil+. whether the path is open or closed</p>
+        <div class='inline'><p>whether the path is open or closed</p>
 </div>
       
     </li>
@@ -647,13 +647,9 @@
         <span class='name'>options</span>
       
       
-        <span class='type'>(<tt>{}</tt>)</span>
+        <span class='type'>(<tt>[]</tt>)</span>
       
       
-      
-        &mdash;
-        <div class='inline'><p>+{}+</p>
-</div>
       
     </li>
   
@@ -992,10 +988,6 @@
       
       
       
-        &mdash;
-        <div class='inline'><p>+x or y+</p>
-</div>
-      
     </li>
   
 </ul>
@@ -1193,12 +1185,12 @@
         <span class='name'>min</span>
       
       
-        <span class='type'>(<tt>Maybe[<span class='object_link'>Coord</span>]</tt>)</span>
+        <span class='type'>(<tt>[]</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>+(Num; a coordinate) or nil+. The minimum offset (default 0)</p>
+        <div class='inline'><p>The minimum offset (default 0)</p>
 </div>
       
     </li>
@@ -1208,12 +1200,12 @@
         <span class='name'>fn</span>
       
       
-        <span class='type'>(<tt>Maybe[<span class='object_link'><a href="../../Fixnum.html" title="Fixnum (class)">Fixnum</a></span>]</tt>)</span>
+        <span class='type'>(<tt>[]</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>+Fixnum or nil+. The quantization number of sides</p>
+        <div class='inline'><p>The quantization number of sides</p>
 </div>
       
     </li>
@@ -1526,10 +1518,6 @@ to stretch or squash the axies.</p>
       
         <em class="default">(defaults to: <tt>x_multiplier</tt>)</em>
       
-      
-        &mdash;
-        <div class='inline'><p>+(Num; a coordinate) or nil+</p>
-</div>
       
     </li>
   
@@ -1997,7 +1985,7 @@ any quadratic beziers into cubics.</p>
   <span class='id identifier rubyid_svg'>svg</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;path d=&quot;</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_svg'>svg</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_to_svg_d_attribute'>to_svg_d_attribute</span>
   <span class='id identifier rubyid_svg'>svg</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_svg'>svg</span> <span class='op'>&lt;&lt;</span> <span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>Exporters</span><span class='op'>::</span><span class='const'>SvgExporter</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_svg'>svg</span> <span class='op'>&lt;&lt;</span> <span class='const'>Exporters</span><span class='op'>::</span><span class='const'>SvgExporter</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_svg'>svg</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/&gt;</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2010,7 +1998,7 @@ any quadratic beziers into cubics.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Sep 25 13:19:03 2015 by
+  Generated on Sat Sep 26 11:58:47 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

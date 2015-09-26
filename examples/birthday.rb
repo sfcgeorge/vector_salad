@@ -1,4 +1,3 @@
-srand 1
 custom(:balloon) do |size, **options|
   tri_size = size / 5
   at = [0, 0]
