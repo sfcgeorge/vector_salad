@@ -27,4 +27,9 @@ class Float
   def ~
     self * unit
   end
+
+  # @api private
+  def to_s
+    round(8).inspect
+  end
 end

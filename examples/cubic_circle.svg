@@ -5,25 +5,25 @@
 
 <rect x="0" y="0" width="240" height="240" fill="none"/>
 <circle cx="120" cy="120" r="100" fill="red" stroke="black" stroke-width="4"/>
-<path d="M 220 120 L 220 175.1915024494 Z" stroke="blue" stroke-width="2"/>
-<path d="M 175.1915024494 220 L 120 220 Z" stroke="blue" stroke-width="2"/>
-<path d="M 120 220 L 64.80849755060001 220 Z" stroke="blue" stroke-width="2"/>
-<path d="M 20 175.1915024494 L 20 120 Z" stroke="blue" stroke-width="2"/>
-<path d="M 20 120 L 20 64.80849755060001 Z" stroke="blue" stroke-width="2"/>
-<path d="M 64.80849755060001 20 L 120 20 Z" stroke="blue" stroke-width="2"/>
-<path d="M 120 20 L 175.1915024494 20 Z" stroke="blue" stroke-width="2"/>
-<path d="M 220 64.80849755060001 L 220 120 Z" stroke="blue" stroke-width="2"/>
+<path d="M 220 120 L 220 175.19150245 Z" stroke="blue" stroke-width="2"/>
+<path d="M 175.19150245 220 L 120 220 Z" stroke="blue" stroke-width="2"/>
+<path d="M 120 220 L 64.80849755 220 Z" stroke="blue" stroke-width="2"/>
+<path d="M 20 175.19150245 L 20 120 Z" stroke="blue" stroke-width="2"/>
+<path d="M 20 120 L 20 64.80849755 Z" stroke="blue" stroke-width="2"/>
+<path d="M 64.80849755 20 L 120 20 Z" stroke="blue" stroke-width="2"/>
+<path d="M 120 20 L 175.19150245 20 Z" stroke="blue" stroke-width="2"/>
+<path d="M 220 64.80849755 L 220 120 Z" stroke="blue" stroke-width="2"/>
 <circle cx="220" cy="120" r="4" fill="green"/>
-<circle cx="220" cy="175.1915024494" r="4" fill="blue"/>
-<circle cx="175.1915024494" cy="220" r="4" fill="blue"/>
+<circle cx="220" cy="175.19150245" r="4" fill="blue"/>
+<circle cx="175.19150245" cy="220" r="4" fill="blue"/>
 <circle cx="120" cy="220" r="4" fill="green"/>
-<circle cx="64.80849755060001" cy="220" r="4" fill="blue"/>
-<circle cx="20" cy="175.1915024494" r="4" fill="blue"/>
+<circle cx="64.80849755" cy="220" r="4" fill="blue"/>
+<circle cx="20" cy="175.19150245" r="4" fill="blue"/>
 <circle cx="20" cy="120" r="4" fill="green"/>
-<circle cx="20" cy="64.80849755060001" r="4" fill="blue"/>
-<circle cx="64.80849755060001" cy="20" r="4" fill="blue"/>
+<circle cx="20" cy="64.80849755" r="4" fill="blue"/>
+<circle cx="64.80849755" cy="20" r="4" fill="blue"/>
 <circle cx="120" cy="20" r="4" fill="green"/>
-<circle cx="175.1915024494" cy="20" r="4" fill="blue"/>
-<circle cx="220" cy="64.80849755060001" r="4" fill="blue"/>
+<circle cx="175.19150245" cy="20" r="4" fill="blue"/>
+<circle cx="220" cy="64.80849755" r="4" fill="blue"/>
 <circle cx="220" cy="120" r="4" fill="green"/>
 </svg>

@@ -39,7 +39,7 @@ module VectorSalad
         svg = '<path d="'
         svg << to_svg_d_attribute
         svg << '"'
-        svg << VectorSalad::Exporters::SvgExporter.options(@options)
+        svg << Exporters::SvgExporter.options(@options)
         svg << "/>"
       end
 
@@ -93,7 +93,7 @@ module VectorSalad
           svg << " #{path.to_svg_d_attribute}"
         end
         svg << '"'
-        svg << VectorSalad::Exporters::SvgExporter.options(@options)
+        svg << Exporters::SvgExporter.options(@options)
         svg << "/>"
       end
     end
@@ -102,7 +102,7 @@ module VectorSalad
       # Export the shape to an svg string
       def to_svg
         svg = "<circle cx=\"#{at[0]}\" cy=\"#{at[1]}\" r=\"#{radius}\""
-        svg << VectorSalad::Exporters::SvgExporter.options(@options)
+        svg << Exporters::SvgExporter.options(@options)
         svg << "/>"
       end
     end
@@ -112,7 +112,7 @@ module VectorSalad
       def to_svg
         svg = "<ellipse cx=\"#{at[0]}\" cy=\"#{at[1]}\""
         svg << " rx=\"#{width}\" ry=\"#{height}\""
-        svg << VectorSalad::Exporters::SvgExporter.options(@options)
+        svg << Exporters::SvgExporter.options(@options)
         svg << "/>"
       end
     end
@@ -122,7 +122,7 @@ module VectorSalad
       def to_svg
         svg = "<rect x=\"#{at[0]}\" y=\"#{at[1]}\""
         svg << " width=\"#{width}\" height=\"#{height}\""
-        svg << VectorSalad::Exporters::SvgExporter.options(@options)
+        svg << Exporters::SvgExporter.options(@options)
         svg << "/>"
       end
     end
