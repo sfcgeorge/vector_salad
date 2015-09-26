@@ -1,3 +1,4 @@
+require "vector_salad/canvas"
 require "vector_salad/standard_shapes/transform"
 
 module VectorSalad

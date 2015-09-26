@@ -1,3 +1,4 @@
+require "vector_salad/standard_shapes/basic_shape"
 require "vector_salad/standard_shapes/path"
 require "vector_salad/standard_shapes/n"
 require "vector_salad/mixins/at"

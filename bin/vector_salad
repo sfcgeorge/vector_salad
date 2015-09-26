@@ -2,74 +2,11 @@
 
 require "optparse"
 require "ostruct"
-require_relative "../lib/vector_salad/version"
+require "vector_salad/version"
+require "vector_salad/optparse"
 
-class OptparseVectorSalad
-  #
-  # Return a structure describing the options.
-  #
-  def self.parse(args)
-    # The options specified on the command line will be collected in *options*.
-    # We set default values here.
-    options = OpenStruct.new
-    options.file = nil
-    options.magic = true
-    options.verbose = false
-    options.width = nil
-    options.height = nil
+ARGV << "--help" if ARGV.empty?
+options = VectorSalad::Optparse.parse(ARGV)
 
-    opt_parser = OptionParser.new do |opts|
-      opts.banner = "Usage: vrs [options]"
-
-      opts.separator ""
-      opts.separator "Specific options:"
-
-      opts.on("--crop CROP",
-              "Set manual crop, WIDTHxHEIGHT, e.g: 400x600") do |crop|
-        options.width, options.height = crop.split('x').map(&:to_i)
-      end
-
-      # Mandatory argument.
-      opts.on("-f", "--file FILE",
-              "Run VectorSalad on the FILE") do |file|
-        options.file = file
-      end
-
-      opts.on("--[no-]magic",
-              "Add some helpful magic to your design") do |m|
-        puts "So this happened: #{m}"
-        options.magic = m
-      end
-
-      # Boolean switch.
-      # opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
-        # options.verbose = v
-      # end
-
-      opts.separator ""
-      opts.separator "Common options:"
-
-      # No argument, shows at tail.  This will print an options summary.
-      # Try it and see!
-      opts.on_tail("-h", "--help", "Show this message") do
-        puts opts
-        exit
-      end
-
-      # Another typical switch to print the version.
-      opts.on_tail("--version", "Show version") do
-        puts VectorSalad::VERSION
-        exit
-      end
-    end
-
-    opt_parser.parse!(args)
-    options
-  end
-end
-
-ARGV << "-h" if ARGV.empty?
-options = OptparseVectorSalad.parse(ARGV)
-
-require_relative "../lib/vector_salad/export_with_magic"
+require "vector_salad/export_with_magic"
 puts VectorSalad::ExportWithMagic.new(options).export

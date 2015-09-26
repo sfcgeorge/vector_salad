@@ -1,6 +1,6 @@
 require "forwardable"
 require "contracts"
-require "contracts_contracts"
+require "contracts_builtin"
 
 module VectorSalad
   module StandardShapes
@@ -13,7 +13,8 @@ module VectorSalad
     # You can't use BasicShape directly.
     class BasicShape
       extend Forwardable
-      include Contracts
+      include Contracts::Core
+      include Contracts::Builtin
 
       attr_accessor :options
 

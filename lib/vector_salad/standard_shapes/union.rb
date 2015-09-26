@@ -1,5 +1,4 @@
 require "vector_salad/standard_shapes/clip"
-require "vector_salad/standard_shapes/multi_path"
 
 module VectorSalad
   module StandardShapes

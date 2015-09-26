@@ -1,4 +1,6 @@
+require "vector_salad/standard_shapes/basic_shape"
 require "vector_salad/standard_shapes/polygon"
+require "vector_salad/standard_shapes/union"
 
 module VectorSalad
   module StandardShapes

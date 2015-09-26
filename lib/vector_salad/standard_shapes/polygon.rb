@@ -1,4 +1,5 @@
-require "contracts_contracts"
+require "contracts_builtin"
+require "vector_salad/standard_shapes/basic_shape"
 require "vector_salad/standard_shapes/path"
 require "vector_salad/mixins/at"
 

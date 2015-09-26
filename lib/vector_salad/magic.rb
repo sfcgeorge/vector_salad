@@ -8,7 +8,7 @@ module VectorSalad
   # @api private
   module Magic
     def canvas
-      @vs_canvas ||= VectorSalad::Canvas.new
+      @canvas ||= VectorSalad::Canvas.new
     end
   end
 end

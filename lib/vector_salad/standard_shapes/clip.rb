@@ -2,6 +2,7 @@ require "clipper"
 
 require "vector_salad/dsl"
 require "vector_salad/canvas"
+require "vector_salad/standard_shapes/basic_shape"
 require "vector_salad/standard_shapes/multi_path"
 
 module VectorSalad

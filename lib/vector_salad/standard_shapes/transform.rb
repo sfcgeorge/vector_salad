@@ -1,9 +1,7 @@
 require "contracts"
-require "contracts_contracts"
-
+require "contracts_builtin"
 require "vector_salad/dsl"
 require "vector_salad/canvas"
-require "vector_salad/standard_shapes/path"
 
 module VectorSalad
   module StandardShapes
@@ -11,7 +9,8 @@ module VectorSalad
     class Transform
       include VectorSalad::DSL
       include VectorSalad::StandardShapes
-      include Contracts
+      include Contracts::Core
+      include Contracts::Builtin
 
       def canvas
         @canvas ||= VectorSalad::Canvas.new

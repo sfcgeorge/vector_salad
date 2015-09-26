@@ -1,3 +1,3 @@
 module VectorSalad
-  VERSION = "0.1.3" # Version of VectorSalad
+  VERSION = "0.2.0" # Version of VectorSalad
 end

@@ -1,7 +1,6 @@
-require "vector_salad/standard_shapes/path"
-require "vector_salad/standard_shapes/n"
 require "vector_salad/dsl"
 require "vector_salad/canvas"
+require "vector_salad/standard_shapes/basic_shape"
 
 module VectorSalad
   module StandardShapes
