@@ -1,12 +1,15 @@
 require "vector_salad/standard_shapes/basic_shape"
 require "vector_salad/standard_shapes/n"
 require "vector_salad/interpolate"
+require "vector_salad/mixins/transforms"
 
 module VectorSalad
   module StandardShapes
     # MultiPath shape is a collection of Paths.
     # It is mainly to store the result of {Clip} operations.
     class MultiPath < BasicShape
+      include VectorSalad::Mixins::Transforms
+
       attr_reader :paths, :closed
 
       # See {Path} for details on constructing paths.
@@ -31,30 +34,6 @@ module VectorSalad
         @closed = closed
         @options = options
         self
-      end
-
-      # Move the MultiPath absolutely.
-      Contract Num, Num => MultiPath
-      def [](x, y)
-        each_send(:[], x, y)
-      end
-
-      # Move the MultiPath relatively.
-      Contract Num, Num => MultiPath
-      def move(x, y)
-        each_send(:move, x, y)
-      end
-
-      # Rotates the MultiPath by the specified angle about the origin.
-      Contract Num => MultiPath
-      def rotate(angle)
-        each_send(:rotate, angle)
-      end
-
-      # Scale a MultiPath by multiplier about the origin.
-      Contract Num => MultiPath
-      def scale(multiplier)
-        each_send(:scale, multiplier)
       end
 
       # Convert the shape to a path

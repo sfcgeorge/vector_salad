@@ -33,8 +33,8 @@ module VectorSalad
       def header; end
 
       def body
-        format = self.class.name.split('::').last.gsub(/Exporter/, '')
-                     .gsub(/(.)([A-Z])/,'\1_\2').downcase
+        format = self.class.name.split("::").last.gsub(/Exporter/, "")
+                     .gsub(/(.)([A-Z])/, '\1_\2').downcase
         convert_method = "to_#{format}".to_sym
         canvas.each do |shape|
           begin
@@ -58,6 +58,7 @@ module VectorSalad
       end
 
       private
+
       # This method is long and repetetive, for speed. There was a shorter
       # version that converted every shape to a MultiPath but the performance
       # was really terrible. This way is a ton faster.

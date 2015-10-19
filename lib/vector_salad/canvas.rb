@@ -24,21 +24,37 @@ module VectorSalad
     end
 
     # Loop over the shapes in the canvas.
-    def each(&block)
+    def each(&_)
       @canvas.each do |shape|
-        shape = shape.shape if shape.class == VectorSalad::ShapeProxy
-        unless shape.class == VectorSalad::StandardShapes::Custom ||
-              !shape.kind_of?(VectorSalad::StandardShapes::BasicShape)
+        shape = to_shape(shape)
+        next if shape.class == VectorSalad::StandardShapes::Custom ||
+                !shape.is_a?(VectorSalad::StandardShapes::BasicShape)
+
+        if shape.is_a?(VectorSalad::StandardShapes::Group) ||
+           (shape.is_a?(VectorSalad::StandardShapes::Custom) &&
+            shape.to_path.class == VectorSalad::StandardShapes::Group)
+          shape.canvas.each { |s| yield(s) }
+        else
           yield(shape)
         end
       end
+    end
+
+    def length
+      @canvas.length
     end
 
     # Access a specific shape in the canvas.
     # Often used to get the first shape [0] for situations where only
     # a single shape is allowed.
     def [](i)
-      @canvas[i].class==VectorSalad::ShapeProxy ? @canvas[i].shape : @canvas[i]
+      to_shape @canvas[i]
+    end
+
+    private
+
+    def to_shape(shape)
+      shape.class == VectorSalad::ShapeProxy ? shape.shape : shape
     end
   end
 end

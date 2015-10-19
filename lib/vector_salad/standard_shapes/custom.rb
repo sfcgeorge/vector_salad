@@ -1,16 +1,19 @@
+require "fancy_to_proc"
 require "vector_salad/dsl"
 require "vector_salad/canvas"
 require "vector_salad/standard_shapes/basic_shape"
+require "vector_salad/standard_shapes/transform"
 
 module VectorSalad
   module StandardShapes
     # Make your own custom shape.
     class Custom < BasicShape
       # You must name your custom shape to be able to use it later.
-      # The block passed to custom shape is what will create your shape,
-      # it should create just a single shape or MultiPath.
-      # This means you should use {MultiPath} or one of the {Clip} operations
-      # which return MultiPaths to create complex shapes.
+      # The block passed to custom shape is what will create your shape.
+      # If you create just 1 shape (e.g. with {MultiPath} or
+      # one of the {Clip} operations which return a {MultiPath})
+      # then that's what's added to the canvas,
+      # but if you create multiple shapes they will be wrapped in a {Group}.
       #
       # @example Using DSL:
       #   custom(:donut) do |size| # name shape and specify parameters
@@ -25,7 +28,8 @@ module VectorSalad
       # @param name The name of your shape in snake_case
       Contract Symbol, {}, Proc => Any
       def initialize(name, **options, &block)
-        ::VectorSalad::StandardShapes.const_set(name.to_s.capitalize.to_sym, Class.new(BasicShape) do
+        const = name.to_s.capitalize.to_sym
+        ::VectorSalad::StandardShapes.const_set(const, Class.new(Custom) do
           include VectorSalad::DSL
           include VectorSalad::StandardShapes
 
@@ -36,7 +40,11 @@ module VectorSalad
           end
 
           def to_path
-            canvas[0]
+            if canvas.length == 1
+              canvas[0]
+            else
+              Group.new.tap(&:canvas=.(@canvas))
+            end
           end
         end)
       end
