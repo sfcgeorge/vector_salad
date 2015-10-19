@@ -40,6 +40,7 @@ module VectorSalad
       end
     end
 
+    # Count of how many shapes are on the canvas
     def length
       @canvas.length
     end

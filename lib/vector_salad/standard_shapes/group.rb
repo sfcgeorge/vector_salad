@@ -39,6 +39,7 @@ module VectorSalad
         @canvas ||= VectorSalad::Canvas.new
       end
 
+      # Returns self
       def to_path
         self
       end
