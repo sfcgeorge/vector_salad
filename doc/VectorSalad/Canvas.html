@@ -199,7 +199,7 @@ so you don&#39;t have to think about it.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong>(&amp;block) </a>
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong>(&amp;_) </a>
     
 
     
@@ -239,6 +239,29 @@ so you don&#39;t have to think about it.</p>
 
   
     <span class="summary_desc"><div class='inline'><p>A new instance of Canvas.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#length-instance_method" title="#length (instance method)">- (Object) <strong>length</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Count of how many shapes are on the canvas.</p>
 </div></span>
   
 </li>
@@ -365,15 +388,15 @@ a single shape is allowed.</p>
       <pre class="lines">
 
 
-40
-41
-42</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/canvas.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/canvas.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
-  <span class='ivar'>@canvas</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='op'>==</span><span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>ShapeProxy</span> <span class='op'>?</span> <span class='ivar'>@canvas</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span> <span class='op'>:</span> <span class='ivar'>@canvas</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_to_shape'>to_shape</span> <span class='ivar'>@canvas</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -383,7 +406,7 @@ a single shape is allowed.</p>
       <div class="method_details ">
   <h3 class="signature " id="each-instance_method">
   
-    - (<tt>Object</tt>) <strong>each</strong>(&amp;block) 
+    - (<tt>Object</tt>) <strong>each</strong>(&amp;_) 
   
 
   
@@ -413,19 +436,71 @@ a single shape is allowed.</p>
 32
 33
 34
-35</pre>
+35
+36
+37
+38
+39
+40
+41</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/vector_salad/canvas.rb', line 27</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid__'>_</span><span class='rparen'>)</span>
   <span class='ivar'>@canvas</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_shape'>shape</span><span class='op'>|</span>
-    <span class='id identifier rubyid_shape'>shape</span> <span class='op'>=</span> <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span> <span class='kw'>if</span> <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>ShapeProxy</span>
-    <span class='kw'>unless</span> <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='op'>::</span><span class='const'>Custom</span> <span class='op'>||</span>
-          <span class='op'>!</span><span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='op'>::</span><span class='const'>BasicShape</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_shape'>shape</span> <span class='op'>=</span> <span class='id identifier rubyid_to_shape'>to_shape</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='op'>::</span><span class='const'>Custom</span> <span class='op'>||</span>
+            <span class='op'>!</span><span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='op'>::</span><span class='const'>BasicShape</span><span class='rparen'>)</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='op'>::</span><span class='const'>Group</span><span class='rparen'>)</span> <span class='op'>||</span>
+       <span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='op'>::</span><span class='const'>Custom</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span>
+        <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_to_path'>to_path</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='op'>::</span><span class='const'>Group</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_canvas'>canvas</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_s'>s</span><span class='op'>|</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>else</span>
       <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="length-instance_method">
+  
+    - (<tt>Object</tt>) <strong>length</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Count of how many shapes are on the canvas</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/canvas.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_length'>length</span>
+  <span class='ivar'>@canvas</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -437,7 +512,7 @@ a single shape is allowed.</p>
 </div>
 
     <div id="footer">
-  Generated on Sat Sep 26 11:58:47 2015 by
+  Generated on Tue Oct 20 00:13:47 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

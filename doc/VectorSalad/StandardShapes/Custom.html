@@ -177,6 +177,7 @@
   
   
   
+  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -192,10 +193,11 @@
 </h3><div class="docstring">
   <div class="discussion">
     <p>You must name your custom shape to be able to use it later.
-The block passed to custom shape is what will create your shape,
-it should create just a single shape or MultiPath.
-This means you should use <span class='object_link'><a href="MultiPath.html" title="VectorSalad::StandardShapes::MultiPath (class)">MultiPath</a></span> or one of the <span class='object_link'><a href="Clip.html" title="VectorSalad::StandardShapes::Clip (class)">VectorSalad::StandardShapes::Clip</a></span> operations
-which return MultiPaths to create complex shapes.</p>
+The block passed to custom shape is what will create your shape.
+If you create just 1 shape (e.g. with <span class='object_link'><a href="MultiPath.html" title="VectorSalad::StandardShapes::MultiPath (class)">MultiPath</a></span> or
+one of the <span class='object_link'><a href="Clip.html" title="VectorSalad::StandardShapes::Clip (class)">VectorSalad::StandardShapes::Clip</a></span> operations which return a <span class='object_link'><a href="MultiPath.html" title="VectorSalad::StandardShapes::MultiPath (class)">MultiPath</a></span>)
+then that&#39;s what&#39;s added to the canvas,
+but if you create multiple shapes they will be wrapped in a <span class='object_link'><a href="Group.html" title="VectorSalad::StandardShapes::Group (class)">Group</a></span>.</p>
 
 
   </div>
@@ -272,8 +274,6 @@ which return MultiPaths to create complex shapes.</p>
       <pre class="lines">
 
 
-28
-29
 30
 31
 32
@@ -287,13 +287,21 @@ which return MultiPaths to create complex shapes.</p>
 40
 41
 42
-43</pre>
+43
+44
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/custom.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/custom.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='op'>::</span><span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='period'>.</span><span class='id identifier rubyid_const_set'>const_set</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_capitalize'>capitalize</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>BasicShape</span><span class='rparen'>)</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_const'>const</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_capitalize'>capitalize</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='op'>::</span><span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span><span class='period'>.</span><span class='id identifier rubyid_const_set'>const_set</span><span class='lparen'>(</span><span class='id identifier rubyid_const'>const</span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Custom</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_include'>include</span> <span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>DSL</span>
     <span class='id identifier rubyid_include'>include</span> <span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>StandardShapes</span>
 
@@ -304,7 +312,11 @@ which return MultiPaths to create complex shapes.</p>
     <span class='kw'>end</span>
 
     <span class='kw'>def</span> <span class='id identifier rubyid_to_path'>to_path</span>
-      <span class='id identifier rubyid_canvas'>canvas</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_canvas'>canvas</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>1</span>
+        <span class='id identifier rubyid_canvas'>canvas</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='kw'>else</span>
+        <span class='const'>Group</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:canvas=</span><span class='period'>.</span><span class='lparen'>(</span><span class='ivar'>@canvas</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -319,7 +331,7 @@ which return MultiPaths to create complex shapes.</p>
 </div>
 
     <div id="footer">
-  Generated on Sat Sep 26 11:58:47 2015 by
+  Generated on Tue Oct 20 00:13:47 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

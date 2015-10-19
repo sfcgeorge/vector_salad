@@ -252,6 +252,13 @@
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BasicShape.html" title="VectorSalad::StandardShapes::BasicShape (class)">BasicShape</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="BasicShape.html#flip-instance_method" title="VectorSalad::StandardShapes::BasicShape#flip (method)">#flip</a></span>, <span class='object_link'><a href="BasicShape.html#flip_x-instance_method" title="VectorSalad::StandardShapes::BasicShape#flip_x (method)">#flip_x</a></span>, <span class='object_link'><a href="BasicShape.html#flip_y-instance_method" title="VectorSalad::StandardShapes::BasicShape#flip_y (method)">#flip_y</a></span>, <span class='object_link'><a href="BasicShape.html#jitter-instance_method" title="VectorSalad::StandardShapes::BasicShape#jitter (method)">#jitter</a></span>, <span class='object_link'><a href="BasicShape.html#move-instance_method" title="VectorSalad::StandardShapes::BasicShape#move (method)">#move</a></span>, <span class='object_link'><a href="BasicShape.html#rotate-instance_method" title="VectorSalad::StandardShapes::BasicShape#rotate (method)">#rotate</a></span>, <span class='object_link'><a href="BasicShape.html#scale-instance_method" title="VectorSalad::StandardShapes::BasicShape#scale (method)">#scale</a></span>, <span class='object_link'><a href="BasicShape.html#to_a-instance_method" title="VectorSalad::StandardShapes::BasicShape#to_a (method)">#to_a</a></span>, <span class='object_link'><a href="BasicShape.html#to_bezier_path-instance_method" title="VectorSalad::StandardShapes::BasicShape#to_bezier_path (method)">#to_bezier_path</a></span>, <span class='object_link'><a href="BasicShape.html#to_cubic_path-instance_method" title="VectorSalad::StandardShapes::BasicShape#to_cubic_path (method)">#to_cubic_path</a></span>, <span class='object_link'><a href="BasicShape.html#to_multi_path-instance_method" title="VectorSalad::StandardShapes::BasicShape#to_multi_path (method)">#to_multi_path</a></span>, <span class='object_link'><a href="BasicShape.html#to_simple_path-instance_method" title="VectorSalad::StandardShapes::BasicShape#to_simple_path (method)">#to_simple_path</a></span>, <span class='object_link'><a href="BasicShape.html#to_svg-instance_method" title="VectorSalad::StandardShapes::BasicShape#to_svg (method)">#to_svg</a></span></p>
 
+  
+  
+  
+  
+  
+  
+  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -333,15 +340,15 @@
       <pre class="lines">
 
 
-17
 18
 19
 20
 21
-22</pre>
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/polygon.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/polygon.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_sides'>sides</span><span class='comma'>,</span> <span class='id identifier rubyid_radius'>radius</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='ivar'>@sides</span><span class='comma'>,</span> <span class='ivar'>@radius</span> <span class='op'>=</span> <span class='id identifier rubyid_sides'>sides</span><span class='comma'>,</span> <span class='id identifier rubyid_radius'>radius</span>
@@ -386,12 +393,12 @@
       <pre class="lines">
 
 
-10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/polygon.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/polygon.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sides'>sides</span>
   <span class='ivar'>@sides</span>
@@ -433,7 +440,6 @@
       <pre class="lines">
 
 
-25
 26
 27
 28
@@ -444,10 +450,11 @@
 33
 34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/polygon.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/polygon.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_path'>to_path</span>
   <span class='id identifier rubyid_nodes'>nodes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -471,7 +478,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sat Sep 26 11:58:48 2015 by
+  Generated on Tue Oct 20 00:13:48 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

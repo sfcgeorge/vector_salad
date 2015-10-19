@@ -245,6 +245,7 @@ It&#39;s easier to use one of the subclasses;
   
   
   
+  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -315,7 +316,6 @@ the first using the specified operation.</p>
       <pre class="lines">
 
 
-19
 20
 21
 22
@@ -335,10 +335,11 @@ the first using the specified operation.</p>
 36
 37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/clip.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/clip.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_operation'>operation</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='comment'># canvas is populated
@@ -408,12 +409,12 @@ the first using the specified operation.</p>
       <pre class="lines">
 
 
-42
 43
-44</pre>
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/clip.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/clip.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_canvas'>canvas</span>
   <span class='ivar'>@canvas</span> <span class='op'>||=</span> <span class='const'>VectorSalad</span><span class='op'>::</span><span class='const'>Canvas</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -448,12 +449,12 @@ the first using the specified operation.</p>
       <pre class="lines">
 
 
-47
 48
-49</pre>
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/clip.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/clip.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_path'>to_path</span>
   <span class='ivar'>@path</span>
@@ -468,7 +469,7 @@ the first using the specified operation.</p>
 </div>
 
     <div id="footer">
-  Generated on Sat Sep 26 11:58:47 2015 by
+  Generated on Tue Oct 20 00:13:47 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

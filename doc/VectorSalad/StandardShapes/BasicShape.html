@@ -94,11 +94,15 @@
     
   
     
+      <dt class="r1">Includes:</dt>
+      <dd class="r1">Contracts::Core</dd>
+      
+    
   
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/vector_salad/standard_shapes/basic_shape.rb<span class="defines">,<br />
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/vector_salad/standard_shapes/basic_shape.rb<span class="defines">,<br />
   lib/vector_salad/exporters/svg_exporter.rb</span>
 </dd>
   
@@ -123,7 +127,7 @@ methods that shapes can use.</p>
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="Circle.html" title="VectorSalad::StandardShapes::Circle (class)">Circle</a></span>, <span class='object_link'><a href="Clip.html" title="VectorSalad::StandardShapes::Clip (class)">Clip</a></span>, <span class='object_link'><a href="Custom.html" title="VectorSalad::StandardShapes::Custom (class)">Custom</a></span>, <span class='object_link'><a href="Heart.html" title="VectorSalad::StandardShapes::Heart (class)">Heart</a></span>, <span class='object_link'><a href="IsoTri.html" title="VectorSalad::StandardShapes::IsoTri (class)">IsoTri</a></span>, <span class='object_link'><a href="MultiPath.html" title="VectorSalad::StandardShapes::MultiPath (class)">MultiPath</a></span>, <span class='object_link'><a href="Oval.html" title="VectorSalad::StandardShapes::Oval (class)">Oval</a></span>, <span class='object_link'><a href="Path.html" title="VectorSalad::StandardShapes::Path (class)">Path</a></span>, <span class='object_link'><a href="Polygon.html" title="VectorSalad::StandardShapes::Polygon (class)">Polygon</a></span>, <span class='object_link'><a href="Rect.html" title="VectorSalad::StandardShapes::Rect (class)">Rect</a></span></p>
+  <p class="children"><span class='object_link'><a href="Circle.html" title="VectorSalad::StandardShapes::Circle (class)">Circle</a></span>, <span class='object_link'><a href="Clip.html" title="VectorSalad::StandardShapes::Clip (class)">Clip</a></span>, <span class='object_link'><a href="Custom.html" title="VectorSalad::StandardShapes::Custom (class)">Custom</a></span>, <span class='object_link'><a href="Group.html" title="VectorSalad::StandardShapes::Group (class)">Group</a></span>, <span class='object_link'><a href="Heart.html" title="VectorSalad::StandardShapes::Heart (class)">Heart</a></span>, <span class='object_link'><a href="IsoTri.html" title="VectorSalad::StandardShapes::IsoTri (class)">IsoTri</a></span>, <span class='object_link'><a href="MultiPath.html" title="VectorSalad::StandardShapes::MultiPath (class)">MultiPath</a></span>, <span class='object_link'><a href="Oval.html" title="VectorSalad::StandardShapes::Oval (class)">Oval</a></span>, <span class='object_link'><a href="Path.html" title="VectorSalad::StandardShapes::Path (class)">Path</a></span>, <span class='object_link'><a href="Polygon.html" title="VectorSalad::StandardShapes::Polygon (class)">Polygon</a></span>, <span class='object_link'><a href="Rect.html" title="VectorSalad::StandardShapes::Rect (class)">Rect</a></span></p>
 </div>
 
 
@@ -491,6 +495,7 @@ methods that shapes can use.</p>
   
   
   
+  
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
     
@@ -521,12 +526,12 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
   <span class='ivar'>@options</span>
@@ -574,10 +579,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-23</pre>
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 24</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:flip</span></pre>
     </td>
@@ -616,10 +621,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-24</pre>
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 25</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:flip_x</span></pre>
     </td>
@@ -658,10 +663,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-25</pre>
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 26</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:flip_y</span></pre>
     </td>
@@ -700,10 +705,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-29</pre>
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 30</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:jitter</span></pre>
     </td>
@@ -742,10 +747,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-28</pre>
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 29</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:move</span></pre>
     </td>
@@ -784,10 +789,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-26</pre>
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 27</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:rotate</span></pre>
     </td>
@@ -826,10 +831,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-30</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 31</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:scale</span></pre>
     </td>
@@ -868,10 +873,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-35</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 36</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:to_a</span></pre>
     </td>
@@ -910,10 +915,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-32</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 33</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:to_bezier_path</span></pre>
     </td>
@@ -952,10 +957,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-33</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 34</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:to_cubic_path</span></pre>
     </td>
@@ -994,10 +999,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-34</pre>
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 35</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:to_multi_path</span></pre>
     </td>
@@ -1036,10 +1041,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-27</pre>
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 28</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:[]</span></pre>
     </td>
@@ -1078,10 +1083,10 @@ methods that shapes can use.</p>
       <pre class="lines">
 
 
-31</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/basic_shape.rb', line 32</span>
 
 <span class='id identifier rubyid_def_instance_delegator'>def_instance_delegator</span> <span class='symbol'>:to_path</span><span class='comma'>,</span> <span class='symbol'>:to_simple_path</span></pre>
     </td>
@@ -1134,7 +1139,7 @@ methods that shapes can use.</p>
 </div>
 
     <div id="footer">
-  Generated on Sat Sep 26 11:58:48 2015 by
+  Generated on Tue Oct 20 00:13:47 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>
