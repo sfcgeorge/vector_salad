@@ -107,7 +107,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Move the contained shapes.</p>
+    <p>Group the contained shapes.</p>
 
 
   </div>
@@ -288,17 +288,15 @@
       <pre class="lines">
 
 
-33
-34
-35
-36</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/group.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/group.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid__options'>_options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='comment'># @canvas = GroupDSL.new(&amp;block).canvas if block
-</span>  <span class='id identifier rubyid_instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span> <span class='comment'># inner_canvas is populated
+  <span class='id identifier rubyid_instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span> <span class='comment'># inner_canvas is populated
 </span><span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -347,12 +345,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/group.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/group.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_canvas'>canvas</span>
   <span class='ivar'>@canvas</span>
@@ -394,12 +392,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/group.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/group.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_path'>to_path</span>
   <span class='kw'>self</span>
@@ -414,7 +412,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Nov  8 16:50:46 2015 by
+  Generated on Sun Nov  8 23:54:13 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>
