@@ -1,8 +1,8 @@
+
 <svg version="1.1"
      xmlns="http://www.w3.org/2000/svg"
      width="400"
      height="600">
-
 <rect x="0" y="0" width="400" height="600" fill="rgb(145, 25, 25)"/>
 <rect x="0" y="0" width="400" height="560" fill="rgb(19, 19, 139)"/>
 <rect x="0" y="0" width="400" height="520" fill="rgb(138, 18, 18)"/>
