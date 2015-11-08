@@ -64,13 +64,17 @@ module VectorSalad
       # Move the path absolutely.
       Contract Coord, Coord => Path
       def [](x, y)
-        Path.new(
-          *to_path.nodes.map do |node|
-            node[x, y]
-          end,
-          closed: @closed,
-          **@options
-        )
+        # finds the top-left most point as if the path is in a bounding box
+        top_left_point = nodes[0].at
+        nodes.each do |node|
+          top_left_point[0] = node.at[0] if node.at[0] < top_left_point[0]
+          top_left_point[1] = node.at[1] if node.at[1] < top_left_point[1]
+        end
+        # finds the delta between the current top-left and new top-left coords
+        dx = x - top_left_point[0]
+        dy = y - top_left_point[1]
+        # move path to the new delta
+        move(dx, dy)
       end
 
       # Move the path relatively.

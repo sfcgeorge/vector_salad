@@ -1,8 +1,9 @@
 require "fancy_to_proc"
 require "vector_salad/dsl"
 require "vector_salad/canvas"
-require "vector_salad/standard_shapes/basic_shape"
-require "vector_salad/standard_shapes/transform"
+Dir.glob(File.expand_path("../standard_shapes/*.rb", __FILE__)).each do |file|
+  require file
+end
 
 module VectorSalad
   module StandardShapes
