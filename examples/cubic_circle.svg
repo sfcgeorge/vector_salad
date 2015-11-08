@@ -1,8 +1,8 @@
+
 <svg version="1.1"
      xmlns="http://www.w3.org/2000/svg"
      width="240"
      height="240">
-
 <rect x="0" y="0" width="240" height="240" fill="none"/>
 <circle cx="120" cy="120" r="100" fill="red" stroke="black" stroke-width="4"/>
 <path d="M 220 120 L 220 175.19150245 Z" stroke="blue" stroke-width="2"/>

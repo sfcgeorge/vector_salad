@@ -8,11 +8,11 @@ module VectorSalad
     # @api private
     class SvgExporter < BaseExporter
       def header
-        puts '
+        puts %(
 <svg version="1.1"
      xmlns="http://www.w3.org/2000/svg"
      width="#{canvas_width}"
-     height="#{canvas_height}">'
+     height="#{canvas_height}">)
       end
 
       def footer

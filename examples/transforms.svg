@@ -1,8 +1,8 @@
+
 <svg version="1.1"
      xmlns="http://www.w3.org/2000/svg"
      width="320.0"
      height="640.0">
-
 <rect x="0" y="0" width="320.0" height="640.0" fill="tan"/>
 <circle cx="20.0" cy="15" r="5" fill="darkorange"/>
 <circle cx="40.0" cy="15" r="5" fill="black"/>
