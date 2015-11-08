@@ -40,6 +40,7 @@ end
 desc "Generate documentation"
 task :docgen do
   Rake::Task[:source].execute
+  Rake::Task[:guide_render].execute
   Rake::Task[:yard].execute
   Rake::Task[:clean_lib].execute
 end
