@@ -72,10 +72,10 @@ That will output the SVG, you probably want to save it to a file in a standard U
 vector_salad -f path/to/gold_stars.rb > path/to/gold_stars.svg
 ```
 
-The SVG file can then be viewed with most modern web browsers, image viewers, or rendered with Inkscape (I leave installing and using Inkscape to the reader). A more interactive way of compiling, rendering and viewing VectorSalad files is with the companion `fresh_vector_salad` command line tool. The following command reads a Ruby VectorSalad file, compiles and saves it to an SVG file, renders it using Inkscape (must be in your path) to a PNG image file, and finally displays the image. Note the lack of .rb extension, it will be added automatically, and an absolute path must be provided.
+The SVG file can then be viewed with most modern web browsers, image viewers, or rendered with Inkscape (I leave installing and using Inkscape to you). A more interactive way of compiling, rendering and viewing VectorSalad files is with the companion `fresh_vector_salad` command line tool. The following command reads a Ruby VectorSalad file, compiles and saves it to an SVG file of the same name, renders it using Inkscape (must be in your path) to a PNG image file of the same name, and finally displays the image. Note an absolute path must be provided here.
 
 ```
-fresh_vector_salad -p /absolute/path/to/file/ -f gold_star
+fresh_vector_salad -f /absolute/path/to/file/gold_stars.rb
 ```
 
 The window displayed looks as follows on OS X. 

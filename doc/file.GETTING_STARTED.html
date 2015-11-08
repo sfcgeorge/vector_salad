@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: 1. Getting Started
+  
+    &mdash; VectorSalad Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.GETTING_STARTED.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: 1. Getting Started</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h2>Setup</h2>
+
+<p>Take a look at the README to get set up, and run through the quick example there to make sure you&#39;ve got everything working. </p>
+
+<p>For this guide you should use the <code>fresh_vector_salad</code> tool so you can see your design evolve live.</p>
+
+<h2>Shapes</h2>
+
+<p>There are lots of ready-made shapes in VectorSalad so you can get designing quickly. Lets start with a pentagon:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_pentagon'>pentagon</span><span class='lparen'>(</span><span class='int'>50</span><span class='rparen'>)</span>
+</code></pre>
+
+<p><svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="47.55282581"
+     height="40.45084972">
+<path d="M -29.38926261 40.45084972 L -47.55282581 -15.45084972 L 0.0 -50.0 L 47.55282581 -15.45084972 L 29.38926261 40.45084972 Z"/>
+</svg></p>
+
+<p>See that was easy; VectorSalad tries to name things clearly and simply. Render it and you should see a black pentagon in the top left corner. VectorSalad outputs SVG (which fresh_vector_salad turns into an image) and it&#39;s default is black fill with no line. Coordinates start at the top left and the shape is by default at <code>0, 0</code>. We set the radius to 50, you can see in the documentation how to create each different shape by looking at the <code>new</code> method (this is run automatically).</p>
+
+<p><em>Try a different polygon like hexagon, or even a circle.</em></p>
+
+<h2>Movement</h2>
+
+<p>To move a shape absolutely (from the top left <code>0, 0</code> coordinate) you can use square brackets, e.g. <code>[50, 100]</code> would position the shape at x 50 y 100. You can also move a shape relative to where it was with <code>move</code>, e.g. <code>move(10, 20)</code> would move the shape from where it was so it ends up at 60, 120. Lets try moving our shape:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_pentagon'>pentagon</span><span class='lparen'>(</span><span class='int'>50</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>50</span><span class='comma'>,</span> <span class='int'>50</span><span class='rbracket'>]</span>
+</code></pre>
+
+<p><svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="97.55282581"
+     height="90.45084972"></p>
+
+<p><path d="M 20.61073739 90.45084972 L 2.44717419 34.54915028 L 50.0 0.0 L 97.55282581 34.54915028 L 79.38926261 90.45084972 Z"/>
+</svg></p>
+
+<p>And now it&#39;s not cut off by the screen because we moved it by the same amount as its radius.</p>
+
+<h2>Variables</h2>
+
+<p>Sometimes it&#39;s nice to be able to change a value in one place and have our whole design update, so we use variables. That 50 is repeated so lets put that in one place:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='int'>50</span>
+<span class='id identifier rubyid_pentagon'>pentagon</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_r'>r</span><span class='rbracket'>]</span>
+</code></pre>
+
+<p><svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="97.55282581"
+     height="90.45084972"></p>
+
+<p><path d="M 20.61073739 90.45084972 L 2.44717419 34.54915028 L 50.0 0.0 L 97.55282581 34.54915028 L 79.38926261 90.45084972 Z"/>
+</svg></p>
+
+<p><em>Try changing the radius to see it update!</em></p>
+
+<h2>Styles</h2>
+
+<p>VectorSalad hands styling over to SVG so you can use all of its style attributes. Some good ones are <code>fill</code>, <code>stroke_width</code> and <code>stroke</code>. Lets give our shape some style:</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Sun Nov  8 15:47:44 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>

@@ -930,19 +930,27 @@
 71
 72
 73
-74</pre>
+74
+75
+76
+77
+78</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='const'>Path</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-    <span class='op'>*</span><span class='id identifier rubyid_to_path'>to_path</span><span class='period'>.</span><span class='id identifier rubyid_nodes'>nodes</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span>
-      <span class='id identifier rubyid_node'>node</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rbracket'>]</span>
-    <span class='kw'>end</span><span class='comma'>,</span>
-    <span class='label'>closed:</span> <span class='ivar'>@closed</span><span class='comma'>,</span>
-    <span class='op'>**</span><span class='ivar'>@options</span>
-  <span class='rparen'>)</span>
+  <span class='comment'># finds the top-left most point as if the path is in a bounding box
+</span>  <span class='id identifier rubyid_top_left_point'>top_left_point</span> <span class='op'>=</span> <span class='id identifier rubyid_nodes'>nodes</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span>
+  <span class='id identifier rubyid_nodes'>nodes</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span>
+    <span class='id identifier rubyid_top_left_point'>top_left_point</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_top_left_point'>top_left_point</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_top_left_point'>top_left_point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_top_left_point'>top_left_point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='comment'># finds the delta between the current top-left and new top-left coords
+</span>  <span class='id identifier rubyid_dx'>dx</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='id identifier rubyid_top_left_point'>top_left_point</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_dy'>dy</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span> <span class='op'>-</span> <span class='id identifier rubyid_top_left_point'>top_left_point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='comment'># move path to the new delta
+</span>  <span class='id identifier rubyid_move'>move</span><span class='lparen'>(</span><span class='id identifier rubyid_dx'>dx</span><span class='comma'>,</span> <span class='id identifier rubyid_dy'>dy</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1013,18 +1021,18 @@
       <pre class="lines">
 
 
-107
-108
-109
-110
 111
 112
 113
 114
-115</pre>
+115
+116
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flip'>flip</span><span class='lparen'>(</span><span class='id identifier rubyid_axis'>axis</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_axis'>axis</span> <span class='op'>==</span> <span class='symbol'>:y</span> <span class='op'>?</span> <span class='op'>-</span><span class='int'>1</span> <span class='op'>:</span> <span class='int'>1</span>
@@ -1078,12 +1086,12 @@
       <pre class="lines">
 
 
-90
-91
-92</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flip_x'>flip_x</span>
   <span class='id identifier rubyid_flip'>flip</span><span class='lparen'>(</span><span class='symbol'>:x</span><span class='rparen'>)</span>
@@ -1131,12 +1139,12 @@
       <pre class="lines">
 
 
-96
-97
-98</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flip_y'>flip_y</span>
   <span class='id identifier rubyid_flip'>flip</span><span class='lparen'>(</span><span class='symbol'>:y</span><span class='rparen'>)</span>
@@ -1233,20 +1241,20 @@
       <pre class="lines">
 
 
-165
-166
-167
-168
 169
 170
 171
 172
 173
 174
-175</pre>
+175
+176
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_jitter'>jitter</span><span class='lparen'>(</span><span class='id identifier rubyid_max'>max</span><span class='comma'>,</span> <span class='label'>min:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>fn:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'>Path</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1336,18 +1344,18 @@
       <pre class="lines">
 
 
-78
-79
-80
-81
 82
 83
 84
 85
-86</pre>
+86
+87
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_move'>move</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='const'>Path</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1431,10 +1439,6 @@
       <pre class="lines">
 
 
-124
-125
-126
-127
 128
 129
 130
@@ -1446,10 +1450,14 @@
 136
 137
 138
-139</pre>
+139
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rotate'>rotate</span><span class='lparen'>(</span><span class='id identifier rubyid_angle'>angle</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_theta'>theta</span> <span class='op'>=</span> <span class='id identifier rubyid_angle'>angle</span> <span class='op'>/</span> <span class='float'>180.0</span> <span class='op'>*</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span>
@@ -1544,20 +1552,20 @@ to stretch or squash the axies.</p>
       <pre class="lines">
 
 
-147
-148
-149
-150
 151
 152
 153
 154
 155
 156
-157</pre>
+157
+158
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scale'>scale</span><span class='lparen'>(</span><span class='id identifier rubyid_x_multiplier'>x_multiplier</span><span class='comma'>,</span> <span class='id identifier rubyid_y_multiplier'>y_multiplier</span> <span class='op'>=</span> <span class='id identifier rubyid_x_multiplier'>x_multiplier</span><span class='rparen'>)</span>
   <span class='const'>Path</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1600,12 +1608,12 @@ to stretch or squash the axies.</p>
       <pre class="lines">
 
 
-270
-271
-272</pre>
+274
+275
+276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 270</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 274</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_a'>to_a</span>
   <span class='id identifier rubyid_nodes'>nodes</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:at</span><span class='rparen'>)</span>
@@ -1641,10 +1649,6 @@ This will convert any Spiro curve nodes into beziers.</p>
       <pre class="lines">
 
 
-184
-185
-186
-187
 188
 189
 190
@@ -1659,10 +1663,14 @@ This will convert any Spiro curve nodes into beziers.</p>
 199
 200
 201
-202</pre>
+202
+203
+204
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 188</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_bezier_path'>to_bezier_path</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='id identifier rubyid_to_path'>to_path</span>
@@ -1715,10 +1723,6 @@ any quadratic beziers into cubics.</p>
       <pre class="lines">
 
 
-207
-208
-209
-210
 211
 212
 213
@@ -1746,10 +1750,14 @@ any quadratic beziers into cubics.</p>
 235
 236
 237
-238</pre>
+238
+239
+240
+241
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 207</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 211</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_cubic_path'>to_cubic_path</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='id identifier rubyid_to_bezier_path'>to_bezier_path</span><span class='period'>.</span><span class='id identifier rubyid_nodes'>nodes</span>
@@ -1813,12 +1821,12 @@ any quadratic beziers into cubics.</p>
       <pre class="lines">
 
 
-265
-266
-267</pre>
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 265</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 269</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_multi_path'>to_multi_path</span>
   <span class='const'>MultiPath</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -1853,12 +1861,12 @@ any quadratic beziers into cubics.</p>
       <pre class="lines">
 
 
-178
-179
-180</pre>
+182
+183
+184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_path'>to_path</span>
   <span class='kw'>self</span>
@@ -1893,10 +1901,6 @@ any quadratic beziers into cubics.</p>
       <pre class="lines">
 
 
-241
-242
-243
-244
 245
 246
 247
@@ -1914,10 +1918,14 @@ any quadratic beziers into cubics.</p>
 259
 260
 261
-262</pre>
+262
+263
+264
+265
+266</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 241</span>
+      <pre class="code"><span class="info file"># File 'lib/vector_salad/standard_shapes/path.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_simple_path'>to_simple_path</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid__'>_</span><span class='rparen'>)</span>
   <span class='comment'># convert bezier curves and spiro splines
@@ -1999,7 +2007,7 @@ any quadratic beziers into cubics.</p>
 </div>
 
     <div id="footer">
-  Generated on Tue Oct 20 00:13:47 2015 by
+  Generated on Sun Nov  8 15:47:45 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

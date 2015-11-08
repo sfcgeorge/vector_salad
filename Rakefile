@@ -23,6 +23,11 @@ task :push do
   sh "git push"
 end
 
+task :guide_render do
+  require_relative "guide_render"
+  GuideRender.new("GETTING_STARTED.markdown").render
+end
+
 task :yard do
   sh "yard"
 end

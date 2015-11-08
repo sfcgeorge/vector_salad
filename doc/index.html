@@ -130,9 +130,9 @@
 <pre class="code ruby"><code class="ruby">vector_salad -f path/to/gold_stars.rb &gt; path/to/gold_stars.svg
 </code></pre>
 
-<p>The SVG file can then be viewed with most modern web browsers, image viewers, or rendered with Inkscape (I leave installing and using Inkscape to the reader). A more interactive way of compiling, rendering and viewing VectorSalad files is with the companion <code>fresh_vector_salad</code> command line tool. The following command reads a Ruby VectorSalad file, compiles and saves it to an SVG file, renders it using Inkscape (must be in your path) to a PNG image file, and finally displays the image. Note the lack of .rb extension, it will be added automatically, and an absolute path must be provided.</p>
+<p>The SVG file can then be viewed with most modern web browsers, image viewers, or rendered with Inkscape (I leave installing and using Inkscape to you). A more interactive way of compiling, rendering and viewing VectorSalad files is with the companion <code>fresh_vector_salad</code> command line tool. The following command reads a Ruby VectorSalad file, compiles and saves it to an SVG file of the same name, renders it using Inkscape (must be in your path) to a PNG image file of the same name, and finally displays the image. Note an absolute path must be provided here.</p>
 
-<pre class="code ruby"><code class="ruby">fresh_vector_salad -p /absolute/path/to/file/ -f gold_star
+<pre class="code ruby"><code class="ruby">fresh_vector_salad -f /absolute/path/to/file/gold_stars.rb
 </code></pre>
 
 <p>The window displayed looks as follows on OS X. </p>
@@ -168,7 +168,7 @@
 </div></div>
 
     <div id="footer">
-  Generated on Tue Oct 20 00:13:46 2015 by
+  Generated on Sun Nov  8 15:47:44 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>
