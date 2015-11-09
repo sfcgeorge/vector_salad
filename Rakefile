@@ -30,6 +30,28 @@ end
 
 task :yard do
   sh "yard"
+  # Yard produces a stupid _index.html that stupid GitHub doesn't like
+  # so we have to change it using sed which has stupid encoding problems
+  # and stupid OS X does stupid things with -i so it might break on Linux
+  # in fact this is so horrible it needs a safety pig, enjoy:
+  #
+  #	 _._ _..._ .-',     _.._(`))
+  #	'-. `     '  /-._.-'    ',/
+  #	   )         \            '.
+  #	  / _    _    |             \
+  #	 |  a    a    /              |
+  #	 \   .-.                     ;
+  #	  '-('' ).-'       ,'       ;
+  #	     '-;           |      .'
+  #	        \           \    /
+  #	        | 7  .__  _.-\   \
+  #	        | |  |  ``/  /`  /
+  #	       /,_|  |   /,_/   /
+  #	          /,_/      '`-'
+  #
+  #	You are safe now.
+  sh "LANG=C LC_CTYPE=C LC_ALL=C find ./doc -type f -exec sed -i '' 's/_index\\.html/contents\\.html/g' '{}' \\;"
+  sh "mv doc/_index.html doc/contents.html"
 end
 
 desc "Show YARD coverage stats"
