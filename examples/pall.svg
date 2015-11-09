@@ -1,0 +1,11 @@
+
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="156.0845213"
+     height="144.72135955">
+<path d="M 32.97717982 144.72135955 L 3.9154787 55.27864045 L 80.0 0.0 L 156.0845213 55.27864045 L 127.02282018 144.72135955 Z" fill="green" stroke="black" stroke-width="3"/>
+<ellipse cx="56.0" cy="80" rx="20" ry="40" fill="white"/>
+<ellipse cx="56.0" cy="92.0" rx="10" ry="20"/>
+<ellipse cx="104.0" cy="80" rx="20" ry="40" fill="white"/>
+<ellipse cx="104.0" cy="92.0" rx="10" ry="20"/>
+</svg>
