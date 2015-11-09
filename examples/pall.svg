@@ -1,0 +1,14 @@
+
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="300"
+     height="300">
+<rect x="0" y="0" width="300" height="300" fill="skyblue"/>
+<path d="M 79.46576972 247.08203932 L 35.87321804 112.91796068 L 150.0 30.0 L 264.12678196 112.91796068 L 220.53423028 247.08203932 Z" fill="green" stroke="black" stroke-width="3"/>
+<ellipse cx="114.0" cy="150" rx="30.0" ry="60.0" fill="white"/>
+<ellipse cx="120.0" cy="168.0" rx="15.0" ry="30.0"/>
+<ellipse cx="186.0" cy="150" rx="30.0" ry="60.0" fill="white"/>
+<ellipse cx="192.0" cy="168.0" rx="15.0" ry="30.0"/>
+<circle cx="78.0" cy="246.0" r="30.0" fill="green" stroke="black" stroke-width="3"/>
+<circle cx="222.0" cy="246.0" r="30.0" fill="green" stroke="black" stroke-width="3"/>
+</svg>
