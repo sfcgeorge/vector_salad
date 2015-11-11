@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/vector_salad.svg)](http://badge.fury.io/rb/vector_salad)
 [![Build Status](https://travis-ci.org/sfcgeorge/vector_salad.svg)](https://travis-ci.org/sfcgeorge/vector_salad)
 [![Code Climate](https://codeclimate.com/github/sfcgeorge/vector_salad/badges/gpa.svg)](https://codeclimate.com/github/sfcgeorge/vector_salad)
+[![GitHub](https://img.shields.io/badge/github-code-blue.svg?style=flat)](https://github.com/sfcgeorge/vector_salad)
 [![Documentation](https://img.shields.io/badge/yard-docs-blue.svg?style=flat)](http://sfcgeorge.github.io/vector_salad/doc/)
 
 ![Space---created with VectorSalad](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/space_huge.png)
