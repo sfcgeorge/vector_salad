@@ -24,8 +24,8 @@ task :push do
 end
 
 task :guide_render do
-  require_relative "guide_render"
-  GuideRender.new("GETTING_STARTED.markdown").render
+  require_relative "docgen/guide_render"
+  GuideRender.new(File.expand_path "*.markdown", __dir__).render
 end
 
 task :yard do
@@ -54,6 +54,10 @@ task :yard do
   sh "mv doc/_index.html doc/contents.html"
 end
 
+task :style do
+  sh "cp docgen/css/common.css doc/css/common.css"
+end
+
 desc "Show YARD coverage stats"
 task :stats do
   sh "yard stats --list-undoc"
@@ -64,6 +68,7 @@ task :docgen do
   Rake::Task[:source].execute
   Rake::Task[:guide_render].execute
   Rake::Task[:yard].execute
+  Rake::Task[:style].execute
   Rake::Task[:clean_lib].execute
 end
 

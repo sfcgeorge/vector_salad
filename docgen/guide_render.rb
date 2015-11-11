@@ -3,16 +3,24 @@ require "tempfile"
 require "ostruct"
 
 class GuideRender
-  def initialize(file)
-    @file = file
+  def initialize(path)
+    @path = path
   end
 
   def render
-    outfile = File.new("#{@file.sub('.markdown', '.md')}", "w")
+    Dir.glob(@path).each do |name|
+      render_file(name)
+    end
+  end
+
+  private
+
+  def render_file(file)
+    outfile = File.new("#{file.sub('.markdown', '.md')}", "w")
     code_open = false
     code = tempfile_fresh(nil)
 
-    File.open(@file, "r") do |infile|
+    File.open(file, "r") do |infile|
       infile.each do |line|
         outfile.puts line
 
@@ -35,8 +43,6 @@ class GuideRender
     tempfile_close(code)
     outfile.close
   end
-
-  private
 
   def export_vector_salad(code_file)
     VectorSalad::ExportWithMagic.new(OpenStruct.new file: code_file.path).export
