@@ -12,7 +12,7 @@ Create art and practical design such as the space scene above with descriptive R
 The companion tool for live design can be found here: [fresh_vector_salad](https://github.com/sfcgeorge/fresh_vector_salad)
 
 
-### Features
+## Features
 
 VectorSalad has a number of features common to graphics tools, and some that are less common. It's still in development so may not have the breadth of features that established tools have, but it has enough to accomplish a range of graphical tasks.
 
@@ -80,7 +80,7 @@ fresh_vector_salad -f /absolute/path/to/file/gold_stars.rb
 
 The window displayed looks as follows on OS X. 
 
-![fresh\_vector\_salad window](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/fresh_vector_salad_gui.png)
+![fresh\_vector\_salad window](https://raw.githubusercontent.com/sfcgeorge/vector_salad/gh-pages/examples/fresh_vector_salad_gui@2x.png)
 
 If you leave `fresh_vector_salad` running, try changing the design file, e.g. making the stars green. When you save, `fresh_vector_salad` will automatically detect the change, re-compile and display the new result. This makes doing "live" design with VectorSalad quick and easy. 
 
