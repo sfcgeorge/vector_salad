@@ -194,6 +194,8 @@ p.signature, h3.signature,
   color: #094630;
   border: none;
   cursor: pointer;
+  padding: 0 4px;
+  display: inline-block;
 }
 
 .note.title.readonly,
