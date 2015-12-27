@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "pretty_backtrace", "~> 0.1"
-  spec.add_dependency "ruby_clipper", "~> 5.0"
+  spec.add_dependency "ruby_clipper", "~> 6.0"
   spec.add_dependency "spiro", "~> 0.0.3"
   spec.add_dependency "contracts", "~> 0.12"
   spec.add_dependency "fancy_to_proc", "~> 0.1"
